@@ -1,4 +1,17 @@
 body {
     background-color: black;
     color: green;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jk {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
