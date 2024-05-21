@@ -7,19 +7,32 @@
 </head>
 <body>
     <div class="main">
-        <div id="header">
+        <div class="header">
             <h2>Welcome to my new website!</h2>
             <h5>J/K... go away... still under construction</h5>
             <img src="/images/skullXbones.jpg">
         </div>
         
-        <div id="jk">
+        <div class="jk">
             <p id="display">You are unprotected! Your IP is:</p>
             <p id="fakeIP" style="color: red; font-weight: bold;">53.156.5.472</p>
             <button id="button">Hide IP!</button>
-            <a href="resume.htm">Resume</a>
         </div>
+        <div class="navbar">
+            <ul>
+                <li><a class="active" href="#home">Home</a></li>
+                <li><a href="resume.htm">Resume</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#games">Games</a></li>
+                <li style="float:right"><a href="#about">About</a></li>
+            </ul>
+        </div>
+        
+        
+        
     </div>
+
+    
 
     <script>
         let button = document.getElementById("button");
