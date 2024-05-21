@@ -2,6 +2,7 @@ body {
     background-color: black;
     color: green;
     font-family: 'Courier New', Courier, monospace;
+    padding-bottom: 60px;
 }
 
 .main {
@@ -16,22 +17,31 @@ body {
     align-items: center;
 }
 /* Navigation bar Styling */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 ul {
+    display: flex;
+    justify-content: left;
     list-style-type: none;
     margin: 5px;
     padding: none;
     overflow: hidden;
     background-color: rgb(23, 23, 23);
-}
-ul {
     position: fixed;
     bottom: 0;
     width: 100%;
 }
 
-li {
-    float: left;
+ul:after {
+    content: "";
+    display: table;
+    clear: both;
 }
+
 
 li a {
     display: block;
