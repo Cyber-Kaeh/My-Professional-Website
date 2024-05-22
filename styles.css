@@ -16,8 +16,10 @@ body {
     box-sizing: border-box;
 }
 
-#header {
-    text-align: flex-start;
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     max-width: 100%;
 }
 
