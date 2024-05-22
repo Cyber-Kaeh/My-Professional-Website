@@ -2,16 +2,35 @@ body {
     background-color: black;
     color: green;
     font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#header {
+    text-align: flex-start;
+    max-width: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 #jk {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 }
