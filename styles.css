@@ -18,9 +18,11 @@ body {
 
 .header {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
+    justify-content: left;
     max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 img {
