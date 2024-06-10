@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Guessing Game</title>
+</head>
+<body>
+    <h1>Guessing Game!</h1>
+    <p>I sure do feel sorry for you if this is your first time! You probably don't even know how to play! Heh!<br>
+        Ok here are the rules: I rule. U suk. Heh!<br>
+        Try and guess the number I'm thinking of... what exactly else were you thinking it would be with a title 
+        like guessing game? Anyway... Here we gooo...
+    </p><br><br>
+    <label for="difficulty">Select the difficulty:</label>
+    <select name="difficulty" id="difficulty">
+        <option value="easy">Easy: 1 - 5</option>
+        <option value="medium">Medium: 1 - 25</option>
+        <option value="hard">Hard: 1 - 50</option>
+        <option value="insane">Insane: 1 - (I can't count that high)</option>
+    </select>
+    <div class="gg_inputs" style="margin-top: 120px;">
+        <label for="guess">Go on, take a guess:   </label>
+        <input type="text" id="guess" placeholder="Easy: 1 - 5">
+        <button id="guess-button">Guess!</button>
+    </div>
+    <div class="gg_output" style="margin-top: 100px;">
+        <p id="output">...</p>
+    </div>
+
+    <script>
+        let win_arr = ["Dang... I suk?", "Hey! You cheated!", "Woah... Are you the one?", "Are you... a witch?!"];
+        let lose_arr = ["Heh! U suk!", "You'll never beat me!", "Don't be too upset, I _am_ smarter than you...", "Good job.. I guess..."]
+        
+        function getRando() {
+            let opt = document.getElementById("difficulty").value;
+            let num = 0;
+            
+            switch (opt) {
+                case "easy":
+                    num = Math.floor((Math.random() * 5) + 1);
+                    break;
+                case "medium":
+                    num = Math.floor((Math.random() * 25) + 1);
+                    break;
+                case "hard":
+                    num = Math.floor((Math.random() * 50) + 1);
+                    break;
+                case "insane":
+                    num = Math.floor((Math.random() * 50000) + 1000);
+                    break;
+            }
+            return num;
+        }
+
+        function getRandomElement(array) {
+            const random_index = Math.floor(Math.random() * array.length);
+            const random_element = array[random_index];
+            return random_element;
+        }
+
+        let button = document.getElementById("guess-button")
+        button.addEventListener("click", function() {
+            let player_in = parseInt(document.getElementById("guess").value);
+            let comp = getRando();
+            console.log("I chose: " + comp + ", and you chose: " + player_in);
+            document.getElementById("output").innerText = "I chose: " + comp + 
+                                        ", and you chose: " + player_in + "\n";
+            if (player_in === comp) {
+                document.getElementById("output").innerHTML += getRandomElement(win_arr);
+            }
+            else {
+                document.getElementById("output").innerHTML += getRandomElement(lose_arr);
+            }
+            document.getElementById("guess").value = "";
+        })
+
+        console.log("return num = " + getRando())
+    </script>
+</body>
+</html>
