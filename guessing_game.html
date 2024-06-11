@@ -1,0 +1,130 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Guessing Game</title>
+    <style>
+        .container {
+            border: 1px solid white;
+            border-radius: 10px;
+            margin: 50px 50px 50px 50px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guessing Game!</h1>
+        <p>I sure do feel sorry for you if this is your first time! You probably don't even know how to play! Heh!<br>
+            Ok here are the rules: I rule. U suk. Heh!<br>
+            Try and guess the number I'm thinking of... what exactly else were you thinking it would be with a title 
+            like guessing game? Anyway... Here we gooo...
+        </p><br><br>
+        <label for="difficulty">Select the difficulty:</label>
+        <select name="difficulty" id="difficulty">
+            <option value="easy">Easy: 1 - 5</option>
+            <option value="medium">Medium: 1 - 25</option>
+            <option value="hard">Hard: 1 - 50</option>
+            <option value="insane">Insane: 1 - (I can't count that high)</option>
+        </select>
+        <div class="gg_inputs" style="margin-top: 120px;">
+            <label for="guess">Go on, take a guess:   </label>
+            <input type="text" id="guess" placeholder="Easy: 1 - 5">
+            <button id="guess-button">Guess!</button>
+        </div>
+        <div class="gg_output" style="margin-top: 100px;">
+            <p id="output">...</p>
+        </div>
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.htm">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a class="active" href="games.html">Games</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="resume.htm">Resume</a></li>
+        </ul>
+    </div>
+    <script>
+        let win_arr = ["Dang... I suk?", "Hey! You cheated!", "Woah... Are you the one?", "Are you... a witch?!", "Good job.. I guess..."];
+        let lose_arr = ["Heh! U suk!", "You'll never beat me!", "Don't be too upset, I _am_ smarter than you...", "I win! I'm on fire!",
+            "It almost hurts to be this good! Almost..."]
+        
+        const button = document.getElementById("guess-button");
+        const selector = document.getElementById("difficulty");
+        const guessBox = document.getElementById("guess");
+
+        function getRando() {
+            let opt = document.getElementById("difficulty").value;
+            let num = 0;
+            
+            switch (opt) {
+                case "easy":
+                    num = Math.floor((Math.random() * 5) + 1);
+                    break;
+                case "medium":
+                    num = Math.floor((Math.random() * 25) + 1);
+                    break;
+                case "hard":
+                    num = Math.floor((Math.random() * 50) + 1);
+                    break;
+                case "insane":
+                    num = Math.floor((Math.random() * 50000) + 1000);
+                    break;
+            }
+            return num;
+        }
+
+        function validateInput(input) {
+            let attempt = document.getElementById("guess").value;
+            if (isNaN(attempt)) {
+                return "... " + attempt + "?? Pick a valid number!";
+            }
+            else if (attempt < 1) {
+                return "Pick a valid number!";
+            }
+            else {
+                return attempt;
+            }
+        }
+
+        function getRandomElement(array) {
+            const random_index = Math.floor(Math.random() * array.length);
+            const random_element = array[random_index];
+            return random_element;
+        }
+
+        button.addEventListener("click", function() {
+            // let player_in = parseInt(document.getElementById("guess").value);
+            let player_in = validateInput(document.getElementById("guess").value)
+            let comp = parseInt(getRando());
+            document.getElementById("output").innerText = "I chose: " + comp + 
+                                        ", and you chose: " + player_in + "\n";
+            if (player_in === comp) {
+                document.getElementById("output").innerText += getRandomElement(win_arr);
+            }
+            else if (player_in != comp) {
+                document.getElementById("output").innerText += getRandomElement(lose_arr);
+            }
+            else {
+                document.getElementById("output").innerText += "Something went wrong..."
+            }
+            document.getElementById("guess").value = "";
+            guessBox.focus();
+        });
+
+        guessBox.addEventListener("keydown", function (event) {
+            if (event.keyCode == 13) {
+                button.click();
+            }
+        });
+        
+        selector.addEventListener("change", function() {
+            let changeTo = selector.options[selector.selectedIndex].text;
+            guessBox.setAttribute("placeholder", changeTo);
+            guessBox.focus();
+        });
+    </script>
+</body>
+</html>

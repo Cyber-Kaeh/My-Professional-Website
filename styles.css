@@ -2,39 +2,63 @@ body {
     background-color: black;
     color: green;
     font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    padding-bottom: 60px;
+    margin-left: 10px;
 }
 
 .main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
 }
-
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    max-width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
 img {
     max-width: 100%;
     height: auto;
-}
-
-#jk {
+  }
+.jk {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
+}
+/* Navigation bar Styling */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+ul {
+    display: flex;
+    justify-content: left;
+    list-style-type: none;
+    margin: 5px;
+    padding: none;
+    overflow: hidden;
+    background-color: rgb(23, 23, 23);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+ul:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: black;
+}
+
+.active {
+    background-color: green;
 }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .games_content {
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .game {
+            height: 200px;
+            width: 30%;
+            border: 1px solid white;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 15px;
+        }
+        #game_link:hover {
+            color: green;
+        }
+        #game_link:active {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="header">
+            <h3 id="top">Remember the part where this site is still under construction?<br>
+            Well it is so easy on the judgements and enjoy some silly JavaScript games!</h3>
+            <p><em>Well... game.. singular game at the moment.</em></p>
+        </div>
+        <div class="games_content">
+            <div class="game">
+                <a id="game_link" href="guessing_game.html">Guessing Game</a>
+                <p>A simple little number guessing game with an overly-confident AI picking the numbers.</p>
+            </div>
+        </div>
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.htm">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a class="active" href="games.html">Games</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="resume.htm">Resume</a></li>
+        </ul>
+    </div>
+</body>
+</html>
