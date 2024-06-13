@@ -31,9 +31,11 @@ ul {
     display: flex;
     justify-content: left;
     list-style-type: none;
-    margin: 5px;
+    float: left;
+    margin: 0;
     padding: none;
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow-x: auto;
     background-color: rgb(23, 23, 23);
     position: fixed;
     bottom: 0;
@@ -46,6 +48,9 @@ ul:after {
     clear: both;
 }
 
+li {
+    float: left;
+}
 
 li a {
     display: block;
@@ -61,4 +66,10 @@ li a:hover {
 
 .active {
     background-color: green;
+}
+
+@media screen and (max-width: 384px) {
+    ul li {
+        flex: 0 0 auto;
+    }
 }
