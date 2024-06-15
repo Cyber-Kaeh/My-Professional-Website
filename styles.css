@@ -33,12 +33,12 @@ ul {
     list-style-type: none;
     float: left;
     margin: 0;
-    padding: none;
+    padding: 0;
     /* overflow: hidden; */
     overflow-x: auto;
     background-color: rgb(23, 23, 23);
     position: fixed;
-    bottom: 0;
+    bottom: 10px;
     width: 100%;
 }
 
