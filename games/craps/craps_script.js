@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const die2 = document.querySelector("#die2");
     const ctx2 = die2.getContext("2d");
     const content = document.querySelector("#message");
-    content.value = "Click either dice to get started!";
+    content.value = "Click either dice to get started!    ";
     // boolean to control win condition
     let firstRoll = true;
     // point variable for if came continues past first roll
