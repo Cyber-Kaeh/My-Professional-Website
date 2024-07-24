@@ -1,0 +1,56 @@
+body {
+    background: black;
+}
+
+.container {
+    background-color: green;
+    border: 2px solid white;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 60px;
+    height: 40%;
+    width: 350px;
+}
+
+.dice-canvas {
+    display: flexbox;
+}
+
+#die1 {
+    background-color: white;
+}
+
+#die2 {
+    background-color: white;
+}
+
+#rulesLink {
+    background-color: green;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.rules {
+    background-color: green;
+    border: 2px solid white;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 60px;
+    width: 350px;
+    height: auto;
+}
+
+@media screen and (max-width: 412px) {
+    .container {
+        width: 80%;
+        padding: 5%;
+        margin: 5%;
+    }
+    .rules {
+        width: 80%;
+        padding: 5%;
+        margin: 5%;
+    }
+}

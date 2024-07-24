@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craps</title>
+    <link rel="stylesheet" href="../../styles.css"></a>
+    <link rel="stylesheet" href="craps_style.css"></a>
+    
+</head>
+<body style="color: black;">
+    <div class="container">
+        <h3>Craps Casino</h3>
+        <div class="dice-canvas">
+            <canvas title="Click to roll die!" id="die1" width="100" height="100" style="border: 1px solid black"></canvas>
+            <canvas title="Click to roll die!" id="die2" width="100" height="100" style="border: 1px solid black"></canvas>
+        </div>
+        <div class="output">
+            <form id="f">
+                <label for="message">Game Info:</label><br />
+                <textarea id="message" name="message" rows="8" cols="38" readonly></textarea>
+                <br><br>
+                <!-- <a href="#" id="rulesLink">Rules</a> -->
+                <button type="button" id="rulesLink">Rules</button>
+            </form>
+        </div>
+    </div>
+    <div class="rules" id="rules">
+        <h3>Rules</h3>
+        <p>
+            Click on either of the dice to roll.
+            <br>
+            If both dice equal 7 or 11 you win instantly.
+            <br>
+            If you roll 2, 3, or 12 on the first roll you lose.
+            <br>
+            If you roll 4, 5, 6, 8, 9, or 10 on your first roll that becomes
+            your "point." You continue to roll aiming to match your point to
+            win. If you roll a 7 instead of your point you lose.
+            <br><br>
+            Click on rules link again to close this box.
+        </p>
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="../../index.htm">Home</a></li>
+            <li><a href="../../about.html">About</a></li>
+            <li><a class="active" href="../../games.html">Games</a></li>
+            <li><a href="../../projects.html">Projects</a></li>
+            <li><a href="../../resume.htm">Resume</a></li>
+        </ul>
+    </div>
+    <script src="craps_script.js"></script>
+</body>
+</html>
