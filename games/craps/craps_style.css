@@ -42,6 +42,18 @@ body {
     height: auto;
 }
 
+#rollButton {
+    background-color: green;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a:link {
+    color: white;
+}
+
 @media screen and (max-width: 412px) {
     .container {
         width: 80%;

@@ -5,10 +5,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const ctx2 = die2.getContext("2d");
     const content = document.querySelector("#message");
     content.value = "Click either dice to get started!";
+    const score = document.querySelector("#score");
+    score.value = "Wins: 0, Loses: 0";
+    const rollButton = document.querySelector("#rollButton");
     // boolean to control win condition
     let firstRoll = true;
     // point variable for if came continues past first roll
     let point;
+    let wins = 0;
+    let loses = 0;
 
     // initial dice configuration
     draw1(ctx1);
@@ -85,13 +90,19 @@ document.addEventListener("DOMContentLoaded", () => {
         case 11:
             // content.append("You win!\n");
             content.value += "You win!\n";
+            wins++;
+            score.value = "Wins: " + wins + ", Loses: " + loses;
             break;
         case 2:
             content.value += "Snake eyes! You lose!\n";
+            loses++;
+            score.value = "Wins: " + wins + ", Loses: " + loses;
             break;
         case 3:
         case 12:
             content.value += "Craps! You lose!\n";
+            loses++;
+            score.value = "Wins: " + wins + ", Loses: " + loses;
             break;
         default:
             // assign total to new point variable and prepare to roll again
@@ -109,11 +120,15 @@ document.addEventListener("DOMContentLoaded", () => {
         case point:
             content.value += "You did it! You rolled another " + point + " and won!\n";
             firstRoll = true;
+            wins++;
+            score.value = "Wins: " + wins + ", Loses: " + loses;
             break;
         case 7:
             content.value += "Crap! You rolled a 7(" + total + ") and lost!\n";
             content.value += "Let's roll again!\n";
             firstRoll = true;
+            loses++;
+            score.value = "Wins: " + wins + ", Loses: " + loses;
             break;
         default:
             content.value += 
@@ -128,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     die1.addEventListener("click", rollDice);
     die2.addEventListener("click", rollDice);
+    rollButton.addEventListener("click", rollDice);
 
     function draw1(x) {
     x.beginPath();
