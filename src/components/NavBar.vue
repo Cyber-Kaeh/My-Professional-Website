@@ -63,14 +63,21 @@
             <span class="navbar-text powered-by-text"> Powered by: </span>
             <img
               src="../assets/vue-logo.png"
-              alt="Logo"
+              alt="Vue.js Logo"
               width="30"
               height="24"
               class="d-inline-block align-text-top icons"
             />
             <img
               src="../assets/bootstrap-5-logo-icon.webp"
-              alt="Logo"
+              alt="Bootstrap 5 Logo"
+              width="30"
+              height="24"
+              class="d-inline-block align-text-top icons"
+            />
+            <img
+              src="../assets/github-copilot-icon.png"
+              alt="Github Copilot Logo"
               width="30"
               height="24"
               class="d-inline-block align-text-top icons"
