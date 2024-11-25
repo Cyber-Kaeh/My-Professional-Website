@@ -1,8 +1,16 @@
 <!-- src/components/NavBar.vue -->
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav
+    class="navbar fixed-bottom navbar-expand-lg"
+    style="background-color: #e3f2fd"
+  >
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/home">Navbar</router-link>
+      <router-link
+        class="navbar-brand"
+        to="/navView"
+        style="color: rgb(23, 74, 23)"
+        >Navigation</router-link
+      >
       <button
         class="navbar-toggler"
         type="button"
@@ -17,18 +25,37 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link class="nav-link active" aria-current="page" to="/home"
+            <router-link
+              class="nav-link"
+              to="/home"
+              exact-active-class="active-link"
+              aria-current="page"
               >Home</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/about">About</router-link>
+            <router-link
+              class="nav-link"
+              to="/about"
+              exact-active-class="active-link"
+              >About</router-link
+            >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/projects">Projects</router-link>
+            <router-link
+              class="nav-link"
+              to="/projects"
+              exact-active-class="active-link"
+              >Projects</router-link
+            >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/resume">Resume</router-link>
+            <router-link
+              class="nav-link"
+              to="/resume"
+              exact-active-class="active-link"
+              >Resume</router-link
+            >
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -55,7 +82,25 @@
   </nav>
 </template>
 
+<script>
+  export default {
+    name: "NavBar",
+  }
+</script>
+
 <style scoped>
+  .nav-link {
+    color: rgb(0, 117, 143);
+    transition: color 0.3s;
+  }
+  .nav-link:hover {
+    color: black;
+  }
+  .active-link {
+    color: rgb(23, 74, 23);
+    /* background-color: #007bff;  <-- Pill effect
+    border-radius: 0.25rem; */
+  }
   .powered-by-text {
     margin-right: 20px;
   }
