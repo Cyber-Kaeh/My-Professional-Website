@@ -2,69 +2,54 @@
   <div>
     <h1>Projects</h1>
   </div>
-  <div class="row">
-    <div
-      class="col-sm-6 mb-3 mb-sm-0"
-      style="max-width: 18rem; padding: 0.25rem"
-    >
-      <div class="card text-bg-light border-dark">
-        <img src="../assets/vue-logo.png" class="card-img-top" alt="..." />
-        <div class="card-header">Project 1</div>
-        <div class="card-body">
-          <h5 class="card-title">sub-title</h5>
-          <p class="card-text">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-          </p>
-          <a href="#" class="btn btn-primary">Details</a>
+  <div class="container-sm">
+    <div class="row row-cols-2 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card text-start h-100">
+          <img
+            src="../assets/home-screenshot1.png"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-header">This website!</h5>
+            <p class="card-text">
+              My personal website built with Vue.js and Bootstrap 5.
+            </p>
+            <a href="#" class="btn btn-primary">Details</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card border-light mb-3" style="max-width: 18rem">
-        <div class="card-header">Project 2</div>
-        <div class="card-body">
-          <h5 class="card-title">sub-title</h5>
-          <p class="card-text">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Accusantium, corrupti possimus. Repudiandae optio alias, maiores
-            laborum natus deleniti libero. Nihil.
-          </p>
-          <a href="#" class="btn btn-primary">Details</a>
+      <div class="col">
+        <div class="card text-start h-100">
+          <img
+            src="../assets/nextcloud-screenshot.png"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-header">Private Cloud</h5>
+            <p class="card-text">
+              Self-hosted NextCloud server running on a Raspberry Pi 4.
+            </p>
+            <a href="#" class="btn btn-primary">Details</a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-6">
-      <div
-        class="card border-dark text-bg-secondary mb-3"
-        style="max-width: 18rem"
-      >
-        <div class="card-header">Project 3</div>
-        <div class="card-body">
-          <h5 class="card-title">sub-title</h5>
-          <p class="card-text">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Accusantium, corrupti possimus. Repudiandae optio alias, maiores
-            laborum natus deleniti libero. Nihil.
-          </p>
-          <a href="#" class="btn btn-primary">Details</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div
-        class="card border-dark text-bg-secondary mb-3"
-        style="max-width: 18rem; padding: 0.25rem"
-      >
-        <img src="../assets/vue-logo.png" class="card-img-top" alt="..." />
-        <div class="card-header">Project 4</div>
-        <div class="card-body">
-          <h5 class="card-title">sub-title</h5>
-          <p class="card-text">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Accusantium, corrupti possimus. Repudiandae optio alias, maiores
-            laborum natus deleniti libero. Nihil.
-          </p>
-          <a href="#" class="btn btn-primary">Details</a>
+      <div class="col">
+        <div class="card text-start h-100">
+          <img
+            src="../assets/bitwarden-og.webp"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-header">Password Manager</h5>
+            <p class="card-text">
+              Self-hosted Bitwarden instance host in AWS EC2.
+            </p>
+            <a href="#" class="btn btn-primary">Details</a>
+          </div>
         </div>
       </div>
     </div>
@@ -75,4 +60,4 @@
   export default {}
 </script>
 
-<style></style>
+<style scoped></style>

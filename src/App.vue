@@ -22,12 +22,13 @@
     margin: 0;
   }
   #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #d1deec;
-    background-color: rgb(0, 117, 143);
+    color: #093d00;
+    background-color: rgb(244, 253, 255);
+    /* background-color: rgb(0, 117, 143); */
     min-height: 100%;
     padding: 20px;
     box-sizing: border-box;
