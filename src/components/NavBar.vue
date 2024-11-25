@@ -2,7 +2,7 @@
 <template>
   <nav
     class="navbar fixed-bottom navbar-expand-lg"
-    style="background-color: #e3f2fd"
+    style="background-color: #e3f2fd; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)"
   >
     <div class="container-fluid">
       <router-link
@@ -96,22 +96,33 @@
 </script>
 
 <style scoped>
+  .navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
   .nav-link {
     color: rgb(0, 117, 143);
-    transition: color 0.3s;
+    transition: color 0.3s, box-shadow 0.3s;
   }
   .nav-link:hover {
-    color: black;
+    color: #00336a;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
   }
   .active-link {
-    color: rgb(23, 74, 23);
-    /* background-color: #007bff;  <-- Pill effect
-    border-radius: 0.25rem; */
+    color: rgb(25, 96, 25);
+    border-radius: 0.25rem;
+    background-color: #e3f2fd;
+    padding: 5px 10px;
   }
   .powered-by-text {
     margin-right: 20px;
+    font-weight: bold;
   }
   .icons {
     margin-right: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .icons:hover {
+    transform: scale(1.1);
   }
 </style>

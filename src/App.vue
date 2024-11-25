@@ -29,5 +29,7 @@
     color: #d1deec;
     background-color: rgb(0, 117, 143);
     min-height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
   }
 </style>
