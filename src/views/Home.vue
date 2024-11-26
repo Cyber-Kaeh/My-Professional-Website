@@ -1,29 +1,28 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section
-      class="hero d-flex align-items-center justify-content-center text-center"
-    >
-      <div class="container">
-        <h1 class="display-4">Welcome to My Website</h1>
-        <p class="lead">Discover my projects and get in touch</p>
+    <section class="hero">
+      <div class="container welcome-text d-flex flex-column align-items-start">
+        <h1 class="display-4 fw-bold text-secondary">
+          Welcome to Anthony's Website
+        </h1>
+        <p class="lead fw-bold text-light">
+          Discover my projects and get in touch
+        </p>
         <a href="#about" class="btn btn-primary mt-3">Learn More</a>
       </div>
     </section>
   </div>
   <div class="container my-5" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>
-      I am a web developer passionate about creating beautiful and functional
-      websites.
-    </p>
+    <h2>Anthony Allen</h2>
+    <p>I am a student of computer science, learning, and life in general.</p>
   </div>
   <section id="about" class="py-5 bg-light">
     <div class="container">
       <div class="row align-items-center" data-aos="fade-right">
         <div class="col-md-6">
           <img
-            src="../assets/github-copilot-icon.png"
+            src="../assets/headshot.jpg"
             class="img-fluid rounded-circle"
             alt="Profile Picture"
           />
@@ -31,8 +30,8 @@
         <div class="col-md-6">
           <h2>About Me</h2>
           <p>
-            Hello! I'm Anthony Allen, a passionate developer learning Vue.js and
-            Flask. I love creating efficient and secure systems.
+            Hello! I'm Anthony Allen, a passionate developer learning full-stack
+            web development. I love creating efficient and secure systems.
           </p>
         </div>
       </div>
@@ -74,8 +73,14 @@
     height: 100vh;
     background: url("../assets/hero-image1.jpg") center/cover no-repeat;
     color: white;
+    position: relative;
   }
   .hero h1 {
     font-size: 4rem;
+  }
+  .welcome-text {
+    /* height: 70%;
+    justify-self: start;
+    padding: 0 20px; */
   }
 </style>

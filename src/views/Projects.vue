@@ -3,7 +3,7 @@
     <h1>Projects</h1>
 
     <div class="container-sm">
-      <div class="row row-cols-2 row-cols-md-3 g-4">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
           <div class="card text-start h-100">
             <img

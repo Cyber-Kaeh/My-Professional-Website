@@ -27,7 +27,7 @@
           <li class="nav-item">
             <router-link
               class="nav-link"
-              to="/home"
+              to="/"
               exact-active-class="active-link"
               aria-current="page"
               >Home</router-link
