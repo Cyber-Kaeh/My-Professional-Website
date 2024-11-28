@@ -24,6 +24,23 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Debug SSH Setup
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 145.223.77.186 >> ~/.ssh/known_hosts
+          ls -la ~/.ssh
+          cat ~/.ssh/known_hosts
+
+      - name: Test SSH Connection
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          ssh -p 65002 -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no u196611491@145.223.77.186 "echo 'SSH connection successful'"
+
       - name: Deploy to Hostinger via SSH
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
