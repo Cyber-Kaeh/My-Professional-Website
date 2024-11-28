@@ -36,14 +36,6 @@
           <li class="nav-item">
             <router-link
               class="nav-link"
-              to="/about"
-              exact-active-class="active-link"
-              >About</router-link
-            >
-          </li>
-          <li class="nav-item">
-            <router-link
-              class="nav-link"
               to="/projects"
               exact-active-class="active-link"
               >Projects</router-link
