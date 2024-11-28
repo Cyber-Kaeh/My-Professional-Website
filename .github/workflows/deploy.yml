@@ -24,11 +24,12 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist # Change this if your build output directory is different
-          server-dir: /public_html # Change this to your server's directory
+      - name: Deploy to Hostinger via SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H anthonyallen.dev >> ~/.ssh/known_hosts
+          rsync -avz --delete ./dist/ u196611491@https://srv1768-files.hstgr.io/dbff4656eb7e7577/files/public_html/
