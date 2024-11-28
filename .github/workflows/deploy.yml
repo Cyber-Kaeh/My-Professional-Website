@@ -32,4 +32,4 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H anthonyallen.dev >> ~/.ssh/known_hosts
-          rsync -avz --delete ./dist/ u196611491@https://srv1768-files.hstgr.io/dbff4656eb7e7577/files/public_html/
+          rsync -avz --delete ./dist/ u196611491@srv1768-files.hstgr.io/dbff4656eb7e7577/files/public_html/
