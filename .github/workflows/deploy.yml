@@ -34,4 +34,4 @@ jobs:
         set -x
         echo "Starting deployment to $HOSTINGER_FTP_SERVER"
         echo "Connecting to FTP server..."
-        lftp -c "open -u '$HOSTINGER_FTP_USERNAME','$HOSTINGER_FTP_PASSWORD' '$HOSTINGER_FTP_SERVER'; mirror -R -e dist /public_html"
+        lftp -e "set ssl:verify-certificate no; open -u $HOSTINGER_FTP_USERNAME,$HOSTINGER_FTP_PASSWORD $HOSTINGER_FTP_SERVER; mirror -R -e dist /public_html"
