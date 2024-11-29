@@ -39,6 +39,4 @@ jobs:
         sudo apt-get install lftp
         echo "Starting deployment to $HOSTINGER_FTP_SERVER"
         echo "Connecting to FTP server..."
-        lftp -d -e "set ssl:verify-certificate no; set ftp:passive-mode yes; open -u $HOSTINGER_FTP_USERNAME,$HOSTINGER_FTP_PASSWORD $HOSTINGER_FTP_SERVER; ls"
-        echo "Deployment finished"
-        # lftp -c "open -u $HOSTINGER_FTP_USERNAME,$HOSTINGER_FTP_PASSWORD $HOSTINGER_FTP_SERVER; mirror -R -e dist /public_html"
+        lftp -c "open -u $HOSTINGER_FTP_USERNAME,$HOSTINGER_FTP_PASSWORD $HOSTINGER_FTP_SERVER; mirror -R -e dist /public_html"
