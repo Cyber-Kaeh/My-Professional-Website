@@ -1,4 +1,3 @@
-# .github/workflows/deploy.yml
 name: Deploy to Hostinger
 
 on:
@@ -25,6 +24,13 @@ jobs:
 
       - name: Build project
         run: npm run build
+
+      - name: Add Host to Known Hosts
+        env:
+          HOST: ${{ secrets.HOST }}
+          PORT: ${{ secrets.PORT }}
+        run: |
+          ssh-keyscan -p $PORT $HOST >> ~/.ssh/known_hosts
 
       - name: Deploy to Hostinger
         env:
