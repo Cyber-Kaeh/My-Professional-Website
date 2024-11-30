@@ -1,4 +1,5 @@
-name: Build and Deploy
+# .github/workflows/deploy.yml
+name: Deploy to Hostinger
 
 on:
   push:
@@ -7,44 +8,75 @@ on:
 
 jobs:
   build:
+    name: Build and Deploy
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16" # Ensure it matches your Vue project's Node.js version
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build project
-      run: npm run build
+      - name: Build project
+        run: npm run build
 
-    - name: Deploy to Hostinger
-      env:
-        HOSTINGER_FTP_SERVER: ${{ secrets.HOSTINGER_FTP_SERVER }}
-        HOSTINGER_FTP_USERNAME: ${{ secrets.HOSTINGER_FTP_USERNAME }}
-        HOSTINGER_FTP_PASSWORD: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
-      run: |
-        sudo apt-get install lftp
-        echo "Starting deployment to $HOSTINGER_FTP_SERVER"
-        echo "Connecting to FTP server..."
-        lftp -d -e "
-          set ssl:verify-certificate no;
-          set ftp:passive-mode yes;
-          open -u $HOSTINGER_FTP_USERNAME,$HOSTINGER_FTP_PASSWORD $HOSTINGER_FTP_SERVER;
-          ls
-        "
-        echo "Connected to FTP server"
-        echo "Mirroring local 'dist' directory to remote '/public_html' directory..."
-        lftp -d -e "
-          set ssl:verify-certificate no;
-          set ftp:passive-mode yes;
-          open -u $HOSTINGER_FTP_USERNAME,$HOSTINGER_FTP_PASSWORD $HOSTINGER_FTP_SERVER;
-          mirror -R -e dist /public_html
-        "
-        echo "Deployment finished"
+      - name: Deploy to Hostinger
+        env:
+          HOST: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        run: |
+          # Create SSH key file
+          echo "$PRIVATE_KEY" > id_rsa
+          chmod 600 id_rsa
+
+          # Deploy using rsync
+          rsync -avz -e "ssh -i id_rsa -p $PORT" dist/ $USERNAME@$HOST:# .github/workflows/deploy.yml
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the main branch
+
+jobs:
+  build:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Ensure it matches your Vue project's Node.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to Hostinger
+        env:
+          HOST: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+        run: |
+          # Create SSH key file
+          echo "$PRIVATE_KEY" > id_rsa
+          chmod 600 id_rsa
+          
+          # Deploy using rsync
+          rsync -avz -e "ssh -i id_rsa -p $PORT" dist/ $USERNAME@$HOST:/home/u196611491/domains/anthonyallen.dev/public_html
+
