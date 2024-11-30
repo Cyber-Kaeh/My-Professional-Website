@@ -38,45 +38,4 @@ jobs:
           chmod 600 id_rsa
 
           # Deploy using rsync
-          rsync -avz -e "ssh -i id_rsa -p $PORT" dist/ $USERNAME@$HOST:# .github/workflows/deploy.yml
-name: Deploy to Hostinger
-
-on:
-  push:
-    branches:
-      - main  # Trigger on push to the main branch
-
-jobs:
-  build:
-    name: Build and Deploy
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'  # Ensure it matches your Vue project's Node.js version
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      - name: Deploy to Hostinger
-        env:
-          HOST: ${{ secrets.HOST }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PORT: ${{ secrets.PORT }}
-          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-        run: |
-          # Create SSH key file
-          echo "$PRIVATE_KEY" > id_rsa
-          chmod 600 id_rsa
-          
-          # Deploy using rsync
           rsync -avz -e "ssh -i id_rsa -p $PORT" dist/ $USERNAME@$HOST:/home/u196611491/domains/anthonyallen.dev/public_html
-
