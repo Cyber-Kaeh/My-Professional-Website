@@ -31,7 +31,10 @@ jobs:
         HOSTINGER_FTP_PASSWORD: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
       run: |
         sudo apt-get install lftp
-        set -x
         echo "Starting deployment to $HOSTINGER_FTP_SERVER"
         echo "Connecting to FTP server..."
-        lftp -e "set ssl:verify-certificate no; open -u $HOSTINGER_FTP_USERNAME,$HOSTINGER_FTP_PASSWORD $HOSTINGER_FTP_SERVER; mirror -R -e dist /public_html; bye"
+        lftp -d -e "set ssl:verify-certificate no; set ftp:passive-mode yes; open -u $HOSTINGER_FTP_USERNAME,$HOSTINGER_FTP_PASSWORD $HOSTINGER_FTP_SERVER; ls"
+        echo "Connected to FTP server"
+        echo "Mirroring local 'dist' directory to remote '/public_html' directory..."
+        lftp -d -e "set ssl:verify-certificate no; set ftp:passive-mode yes; open -u $HOSTINGER_FTP_USERNAME,$HOSTINGER_FTP_PASSWORD $HOSTINGER_FTP_SERVER; mirror -R -e dist /public_html"
+        echo "Deployment finished"
