@@ -47,14 +47,14 @@
       </p>
       <div class="d-flex justify-content-center mt-4" data-aos="zoom-in">
         <a
-          href="https://www.linkedin.com/in/anthony-allen"
+          href="https://www.linkedin.com/in/anthony-allen-738074268"
           target="_blank"
           class="btn btn-outline-primary mx-2"
         >
           <i class="fab fa-linkedin"></i> LinkedIn
         </a>
         <a
-          href="https://github.com/anthonyallen"
+          href="https://github.com/Cyber-Kaeh"
           target="_blank"
           class="btn btn-outline-dark mx-2"
         >
