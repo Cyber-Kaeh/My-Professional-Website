@@ -2,9 +2,11 @@
   <div>
     <!-- Hero Section -->
     <section class="hero">
-      <div class="container welcome-text d-flex flex-column align-items-start justify-content-start">
+      <div
+        class="container welcome-text d-flex flex-column align-items-start justify-content-start"
+      >
         <h1 class="display-4 fw-bold">
-          Welcome to<br>
+          Welcome to<br />
           Anthony's Website
         </h1>
         <p class="lead fw-bold text-light">
@@ -80,11 +82,14 @@
     font-size: 3.5rem;
   }
   .welcome-text {
-    font-family:'Space Mono','Courier New', Courier, monospace;
+    font-family: "Space Mono", "Courier New", Courier, monospace;
     text-align: left;
     /* color: rgb(4, 159, 190); */
     color: rgb(147, 181, 188);
     text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
     -webkit-text-stroke: 1px rgb(14, 46, 77);
+  }
+  #contact {
+    margin-bottom: 50px;
   }
 </style>
