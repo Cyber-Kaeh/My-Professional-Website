@@ -24,7 +24,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <li class="nav-item" @click="collapseNavbar">
             <router-link
               class="nav-link"
               to="/"
@@ -33,7 +33,7 @@
               >Home</router-link
             >
           </li>
-          <li class="nav-item">
+          <li class="nav-item" @click="collapseNavbar">
             <router-link
               class="nav-link"
               to="/projects"
@@ -41,7 +41,7 @@
               >Projects</router-link
             >
           </li>
-          <li class="nav-item">
+          <li class="nav-item" @click="collapseNavbar">
             <router-link
               class="nav-link"
               to="/resume"
@@ -82,9 +82,21 @@
 </template>
 
 <script>
-  export default {
-    name: "NavBar",
+import { Collapse } from 'bootstrap';
+
+export default {
+  methods: {
+    collapseNavbar() {
+      const navbarCollapse = document.getElementById('navbarNav');
+      if (navbarCollapse.classList.contains('show')) {
+        const bsCollapse = new Collapse(navbarCollapse, {
+          toggle: false
+        });
+        bsCollapse.hide();
+      }
+    }
   }
+}
 </script>
 
 <style scoped>
