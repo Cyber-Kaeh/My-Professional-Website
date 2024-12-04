@@ -45,6 +45,7 @@
     text-align: center;
     padding: 20px;
     margin-top: 30px;
+    margin-bottom: 50px;
   }
 
   .resume-preview {
