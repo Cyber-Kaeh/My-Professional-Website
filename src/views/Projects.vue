@@ -34,6 +34,11 @@
 
 <script>
   import ProjectModal from "@/components/ProjectModal.vue"
+  import { marked } from "marked"
+  import renderer from "@/utils/customRenderer"
+  import chuckAppDesc from "../assets/descriptions/chuckjokes.md"
+  import websiteDesc from "../assets/descriptions/website.md"
+  import nextcloudDesc from "../assets/descriptions/nextcloud.md"
 
   export default {
     components: {
@@ -48,15 +53,15 @@
             id: 1,
             title: "This website!",
             shortDescription:
-              "My personal website built with Vue.js and Bootstrap 5.",
-            description: "Detailed description of this website project...",
+              "My professional portfolio website I built with Vue.js and Bootstrap 5.",
+            description: marked(websiteDesc, { renderer }),
             image: require("../assets/home_screenshot.png"),
           },
           {
             id: 2,
             title: "Nextcloud",
             shortDescription: "A self-hosted cloud storage solution.",
-            description: "Detailed description of the Nextcloud project...",
+            description: marked(nextcloudDesc, { renderer }),
             image: require("../assets/nextcloud-screenshot.png"),
           },
           {
@@ -64,8 +69,7 @@
             title: "Chuck Jokes",
             shortDescription:
               "A simple web app that displays endless Chuck Norris jokes!",
-            description:
-              "This is a fun and easy project I did to learn more about using Flask, APIs, and Docker. It was incredibly fun to bring it all together and deploy it locally using my Raspberry Pi. It is also super fun to show to visitors or for just a little midday pick-me-up with a Chuck Norris joke.",
+            description: marked(chuckAppDesc, { renderer }),
             image: require("../assets/chuckapp_screenshot.png"),
           },
           // Add more projects as needed
