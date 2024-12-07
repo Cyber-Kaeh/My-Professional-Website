@@ -92,6 +92,7 @@
 <style scoped>
   .projects-container {
     padding: 20px;
+    margin-bottom: 70px;
   }
   .modal {
     background-color: rgba(0, 0, 0, 0.5);

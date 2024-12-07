@@ -12,7 +12,9 @@
         <p class="lead fw-bold text-light">
           Discover my projects and get in touch
         </p>
-        <a href="#about" class="btn learn-more-btn btn-primary mt-3">Learn More</a>
+        <a href="#about" class="btn learn-more-btn btn-primary mt-3"
+          >Learn More</a
+        >
       </div>
     </section>
   </div>
@@ -82,7 +84,7 @@
     font-size: 3.5rem;
   }
   .welcome-text {
-    font-family: "Space Mono",  "Courier New", Courier, monospace;
+    font-family: "Space Mono", "Courier New", Courier, monospace;
     text-align: left;
     /* color: rgb(4, 159, 190); */
     color: rgb(37, 39, 39);
@@ -90,10 +92,10 @@
     -webkit-text-stroke: 1px rgb(153, 158, 163);
   }
   #contact {
-    margin-bottom: 50px;
+    margin-bottom: 70px;
   }
   .welcome-text .learn-more-btn {
     color: rgb(255, 255, 255);
-    -webkit-text-stroke: .6px rgba(227, 235, 235, 0.751);
+    -webkit-text-stroke: 0.6px rgba(227, 235, 235, 0.751);
   }
 </style>
