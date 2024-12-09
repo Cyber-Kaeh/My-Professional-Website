@@ -40,39 +40,78 @@
 </script>
 
 <style scoped>
-  /* Same styles as provided earlier for iframe and button */
   .resume-section {
     text-align: center;
     padding: 20px;
     margin-top: 30px;
     margin-bottom: 60px;
+    font-family: Arial, sans-serif;
+    color: #333;
   }
 
   .resume-preview {
-    max-width: 800px;
-    margin: 0 auto;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    position: relative;
+    max-width: 90%; /* Adjust for smaller screens */
+    margin: 20px auto;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Modern, subtle shadow */
+    background: linear-gradient(135deg, #f3f4f6, #ffffff); /* Subtle gradient */
+  }
+
+  /* Maintain responsive aspect ratio */
+  .resume-preview::before {
+    content: "";
+    display: block;
+    padding-top: 75%; /* Aspect ratio 4:3 */
   }
 
   .iframe-resume {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 600px;
+    height: 100%;
     border: none;
+    border-radius: 10px;
   }
 
   .btn {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
-    border-radius: 5px;
+    font-weight: bold;
+    border-radius: 10px;
     background-color: #007bff;
     color: white;
     text-decoration: none;
+    transition: all 0.3s ease;
   }
 
   .btn:hover {
     background-color: #0056b3;
+    transform: translateY(-3px); /* Slight hover effect */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add hover shadow */
+  }
+
+  @media (max-width: 480px) {
+    .resume-preview {
+      height: 75vh; /* Occupy 75% of viewport height */
+      max-height: 80vh; /* Ensure it doesn't exceed available space */
+    }
+
+    .resume-preview::before {
+      content: none; /* Remove fixed aspect ratio */
+    }
+
+    .iframe-resume {
+      height: 100%; /* Allow iframe to stretch */
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .btn {
+      font-size: 14px; /* Smaller text for compact buttons */
+      padding: 10px 18px;
+    }
   }
 </style>
