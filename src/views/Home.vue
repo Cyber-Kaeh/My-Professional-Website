@@ -92,7 +92,7 @@
     -webkit-text-stroke: 1px rgb(153, 158, 163);
   }
   #contact {
-    margin-bottom: 70px;
+    margin-bottom: 60px;
   }
   .welcome-text .learn-more-btn {
     color: rgb(255, 255, 255);

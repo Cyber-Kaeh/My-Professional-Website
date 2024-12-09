@@ -60,7 +60,8 @@
           {
             id: 2,
             title: "Nextcloud",
-            shortDescription: "A self-hosted cloud storage solution.",
+            shortDescription:
+              "My own personal cloud storage server, hosted on local hardware.",
             description: marked(nextcloudDesc, { renderer }),
             image: require("../assets/nextcloud-screenshot.png"),
           },
@@ -92,7 +93,7 @@
 <style scoped>
   .projects-container {
     padding: 20px;
-    margin-bottom: 70px;
+    margin-bottom: 60px;
   }
   .modal {
     background-color: rgba(0, 0, 0, 0.5);
