@@ -59,6 +59,8 @@
               width="30"
               height="24"
               class="d-inline-block align-text-top icons"
+              data-bs-toggle="tooltip"
+              title="Vue 3 v3.2.13"
             />
             <img
               src="../assets/bootstrap-5-logo-icon.webp"
@@ -66,6 +68,8 @@
               width="30"
               height="24"
               class="d-inline-block align-text-top icons"
+              data-bs-toggle="tooltip"
+              title="Bootstrap 5 v5.3.3"
             />
             <img
               src="../assets/github-copilot-icon.png"
@@ -73,6 +77,8 @@
               width="30"
               height="24"
               class="d-inline-block align-text-top icons"
+              data-bs-toggle="tooltip"
+              title="Github Copilot coding assistance"
             />
           </li>
         </ul>

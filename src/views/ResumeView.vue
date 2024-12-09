@@ -10,6 +10,7 @@
     <div class="resume-preview">
       <iframe
         src="/resume1.pdf"
+        width="100%"
         title="Resume Preview"
         frameborder="0"
         scrolling="no"
