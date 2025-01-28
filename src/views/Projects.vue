@@ -4,65 +4,99 @@
 
     <div class="container-sm">
       <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
+        <div class="col" v-for="project in projects" :key="project.id">
           <div class="card text-start h-100">
             <img
-              src="../assets/home-screenshot1.png"
+              :src="project.image"
               class="card-img-top"
-              alt="..."
+              :alt="project.title"
             />
             <div class="card-body">
-              <h5 class="card-header">This website!</h5>
-              <p class="card-text">
-                My personal website built with Vue.js and Bootstrap 5.
-              </p>
-              <a href="#" class="btn btn-primary">Details</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card text-start h-100">
-            <img
-              src="../assets/nextcloud-screenshot.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-header">Private Cloud</h5>
-              <p class="card-text">
-                Self-hosted NextCloud server running on a Raspberry Pi 4.
-              </p>
-              <a href="#" class="btn btn-primary">Details</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card text-start h-100">
-            <img
-              src="../assets/bitwarden-og.webp"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-header">Password Manager</h5>
-              <p class="card-text">
-                Self-hosted Bitwarden instance host in AWS EC2.
-              </p>
-              <a href="#" class="btn btn-primary">Details</a>
+              <h5 class="card-header">{{ project.title }}</h5>
+              <p class="card-text">{{ project.shortDescription }}</p>
+              <button class="btn btn-primary" @click="openModal(project)">
+                Details
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <Modal
+      v-if="selectedProject"
+      :show="showModal"
+      :title="selectedProject.title"
+      :description="selectedProject.description"
+      @close="closeModal"
+    />
   </div>
 </template>
 
 <script>
-  export default {}
+  import ProjectModal from "@/components/ProjectModal.vue"
+  import { marked } from "marked"
+  import renderer from "@/utils/customRenderer"
+  import chuckAppDesc from "../assets/descriptions/chuckjokes.md"
+  import websiteDesc from "../assets/descriptions/website.md"
+  import nextcloudDesc from "../assets/descriptions/nextcloud.md"
+
+  export default {
+    components: {
+      Modal: ProjectModal,
+    },
+    data() {
+      return {
+        showModal: false,
+        selectedProject: null,
+        projects: [
+          {
+            id: 1,
+            title: "This website!",
+            shortDescription:
+              "My professional portfolio website I built with Vue.js and Bootstrap 5.",
+            description: marked(websiteDesc, { renderer }),
+            image: require("../assets/home_screenshot.png"),
+          },
+          {
+            id: 2,
+            title: "Nextcloud",
+            shortDescription:
+              "My own personal cloud storage server, hosted on local hardware.",
+            description: marked(nextcloudDesc, { renderer }),
+            image: require("../assets/nextcloud-screenshot.png"),
+          },
+          {
+            id: 3,
+            title: "Chuck Jokes",
+            shortDescription:
+              "A simple web app that displays endless Chuck Norris jokes!",
+            description: marked(chuckAppDesc, { renderer }),
+            image: require("../assets/chuckapp_screenshot.png"),
+          },
+          // Add more projects as needed
+        ],
+      }
+    },
+    methods: {
+      openModal(project) {
+        this.selectedProject = project
+        this.showModal = true
+      },
+      closeModal() {
+        this.selectedProject = null
+        this.showModal = false
+      },
+    },
+  }
 </script>
 
 <style scoped>
   .projects-container {
     padding: 20px;
+    margin-bottom: 60px;
+  }
+  .modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
   }
 </style>

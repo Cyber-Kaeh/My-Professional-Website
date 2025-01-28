@@ -2,10 +2,7 @@
   <div class="nav-container">
     <ul class="nav-list">
       <li class="nav-item">
-        <router-link class="nav-link" to="/home">Home</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link class="nav-link" to="/about">About</router-link>
+        <router-link class="nav-link" to="/">Home</router-link>
       </li>
       <li class="nav-item">
         <router-link class="nav-link" to="/projects">Projects</router-link>
@@ -27,7 +24,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(0, 117, 143);
+    background-color: #1a1a1a;
   }
 
   .nav-list {
@@ -39,22 +36,28 @@
   }
 
   .nav-item {
-    margin: 10px 0;
+    margin: 15px 0;
   }
 
   .nav-link {
     display: block;
-    padding: 10px 20px;
-    color: white;
+    padding: 12px 25px;
+    color: #ffffff;
     text-decoration: none;
-    border-radius: 25px;
-    background-color: #444;
+    border-radius: 5px;
+    background-color: #333333;
     text-align: center;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
   }
 
   .nav-link:hover {
-    background-color: #555;
-    color: rgb(0, 117, 143);
+    background-color: #555555;
+    color: #ffffff;
+    transform: translateY(-3px);
+  }
+
+  .nav-link:active {
+    background-color: #777777;
+    transform: translateY(0);
   }
 </style>

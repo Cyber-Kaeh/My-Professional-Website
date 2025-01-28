@@ -24,7 +24,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <li class="nav-item" @click="collapseNavbar">
             <router-link
               class="nav-link"
               to="/"
@@ -33,7 +33,7 @@
               >Home</router-link
             >
           </li>
-          <li class="nav-item">
+          <li class="nav-item" @click="collapseNavbar">
             <router-link
               class="nav-link"
               to="/projects"
@@ -41,7 +41,7 @@
               >Projects</router-link
             >
           </li>
-          <li class="nav-item">
+          <li class="nav-item" @click="collapseNavbar">
             <router-link
               class="nav-link"
               to="/resume"
@@ -59,6 +59,8 @@
               width="30"
               height="24"
               class="d-inline-block align-text-top icons"
+              data-bs-toggle="tooltip"
+              title="Vue 3 v3.2.13"
             />
             <img
               src="../assets/bootstrap-5-logo-icon.webp"
@@ -66,6 +68,8 @@
               width="30"
               height="24"
               class="d-inline-block align-text-top icons"
+              data-bs-toggle="tooltip"
+              title="Bootstrap 5 v5.3.3"
             />
             <img
               src="../assets/github-copilot-icon.png"
@@ -73,6 +77,8 @@
               width="30"
               height="24"
               class="d-inline-block align-text-top icons"
+              data-bs-toggle="tooltip"
+              title="Github Copilot coding assistance"
             />
           </li>
         </ul>
@@ -82,9 +88,21 @@
 </template>
 
 <script>
-  export default {
-    name: "NavBar",
+import { Collapse } from 'bootstrap';
+
+export default {
+  methods: {
+    collapseNavbar() {
+      const navbarCollapse = document.getElementById('navbarNav');
+      if (navbarCollapse.classList.contains('show')) {
+        const bsCollapse = new Collapse(navbarCollapse, {
+          toggle: false
+        });
+        bsCollapse.hide();
+      }
+    }
   }
+}
 </script>
 
 <style scoped>

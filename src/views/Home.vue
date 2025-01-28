@@ -2,15 +2,19 @@
   <div>
     <!-- Hero Section -->
     <section class="hero">
-      <div class="container welcome-text d-flex flex-column align-items-start justify-content-start">
+      <div
+        class="container welcome-text d-flex flex-column align-items-start justify-content-start"
+      >
         <h1 class="display-4 fw-bold">
-          Welcome to<br>
+          Welcome to<br />
           Anthony's Website
         </h1>
         <p class="lead fw-bold text-light">
           Discover my projects and get in touch
         </p>
-        <a href="#about" class="btn btn-primary mt-3">Learn More</a>
+        <a href="#about" class="btn learn-more-btn btn-primary mt-3"
+          >Learn More</a
+        >
       </div>
     </section>
   </div>
@@ -47,14 +51,14 @@
       </p>
       <div class="d-flex justify-content-center mt-4" data-aos="zoom-in">
         <a
-          href="https://www.linkedin.com/in/anthony-allen"
+          href="https://www.linkedin.com/in/anthony-allen-738074268"
           target="_blank"
           class="btn btn-outline-primary mx-2"
         >
           <i class="fab fa-linkedin"></i> LinkedIn
         </a>
         <a
-          href="https://github.com/anthonyallen"
+          href="https://github.com/Cyber-Kaeh"
           target="_blank"
           class="btn btn-outline-dark mx-2"
         >
@@ -72,19 +76,27 @@
 <style scoped>
   .hero {
     height: 100vh;
-    background: url("../assets/hero-image.jpg") center/cover no-repeat;
+    background: url("../assets/hero-image4.jpg") center/cover no-repeat;
     color: white;
     position: relative;
+    padding-bottom: 60px;
   }
   .hero h1 {
     font-size: 3.5rem;
   }
   .welcome-text {
-    font-family:'Space Mono','Courier New', Courier, monospace;
+    font-family: "Space Mono", "Courier New", Courier, monospace;
     text-align: left;
     /* color: rgb(4, 159, 190); */
-    color: rgb(147, 181, 188);
-    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
-    -webkit-text-stroke: 1px rgb(14, 46, 77);
+    color: rgb(37, 39, 39);
+    text-shadow: 4px 4px 6px rgba(43, 44, 44, 0.751);
+    -webkit-text-stroke: 1px rgb(153, 158, 163);
+  }
+  #contact {
+    margin-bottom: 60px;
+  }
+  .welcome-text .learn-more-btn {
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.6px rgba(227, 235, 235, 0.751);
   }
 </style>
