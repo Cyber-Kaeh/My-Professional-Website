@@ -79,6 +79,7 @@
     background: url("../assets/hero-image4.jpg") center/cover no-repeat;
     color: white;
     position: relative;
+    padding-bottom: 60px;
   }
   .hero h1 {
     font-size: 3.5rem;

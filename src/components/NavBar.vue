@@ -19,7 +19,6 @@
         aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        @click.self="collapseNavbar"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
