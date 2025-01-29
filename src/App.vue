@@ -30,7 +30,7 @@
     background-color: rgb(244, 253, 255);
     /* background-color: rgb(0, 117, 143); */
     min-height: 100%;
-    /* padding: 20px; */
+    padding-bottom: 20px;
     box-sizing: border-box;
   }
 </style>

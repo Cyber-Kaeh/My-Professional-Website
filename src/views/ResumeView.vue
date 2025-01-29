@@ -44,7 +44,7 @@
   .resume-section {
     text-align: center;
     padding: 20px;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     margin-bottom: 60px;
     font-family: Arial, sans-serif;
     color: #333;
