@@ -19,6 +19,7 @@
         aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
+        @click="collapseNavbar"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -91,14 +92,20 @@
 import { Collapse } from 'bootstrap';
 
 export default {
+  data() {
+    return {
+      collapseInstance: null
+    };
+  },
+  mounted() {
+    this.collapseInstance = new Collapse(document.getElementById('navbarNav'), {
+      toggle: false
+    });
+  },
   methods: {
     collapseNavbar() {
-      const navbarCollapse = document.getElementById('navbarNav');
-      if (navbarCollapse.classList.contains('show')) {
-        const bsCollapse = new Collapse(navbarCollapse, {
-          toggle: false
-        });
-        bsCollapse.hide();
+      if (this.collapseInstance) {
+        this.collapseInstance.hide();
       }
     }
   }
