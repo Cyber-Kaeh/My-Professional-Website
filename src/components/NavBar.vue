@@ -17,9 +17,8 @@
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
         aria-controls="navbarNav"
-        aria-expanded="false"
         aria-label="Toggle navigation"
-        @click="collapseNavbar"
+        aria-expanded="false"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -98,13 +97,21 @@ export default {
     };
   },
   mounted() {
-    this.collapseInstance = new Collapse(document.getElementById('navbarNav'), {
+    const navbarCollapse = document.getElementById('navbarNav');
+
+    this.collapseInstance = new Collapse(navbarCollapse, {
       toggle: false
     });
+    
+    navbarCollapse.addEventListener('show.bs.collapse', (event) => {
+      if (this.collapseInstance._isTransitioning) {
+        event.preventDefault();
+      }
+    })
   },
   methods: {
     collapseNavbar() {
-      if (this.collapseInstance) {
+      if (this.collapseInstance._element.classList.contains('show')) {
         this.collapseInstance.hide();
       }
     }
