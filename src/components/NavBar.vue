@@ -93,41 +93,27 @@ import { Collapse } from 'bootstrap';
 export default {
   data() {
     return {
-      collapseInstance: null,
-      isCollapsing: false
+      collapseInstance: null
     };
   },
   mounted() {
-    this.collapseInstance = new Collapse(document.getElementById('navbarNav'), {
+    const navbarCollapse = document.getElementById('navbarNav');
+
+    this.collapseInstance = new Collapse(navbarCollapse, {
       toggle: false
     });
-    const navbarCollapse = document.getElementById('navbarNav')
-    navbarCollapse.addEventListener('hidden.bs.collapse', () => {
-      console.log("navbar has been collapsed")
-      this.isCollapsing = false;
-    });
+    
     navbarCollapse.addEventListener('show.bs.collapse', (event) => {
-      if (this.isCollapsing) {
-        console.log("Preventing navbar from reopening")
+      if (this.collapseInstance._isTransitioning) {
         event.preventDefault();
-      } else {
-        console.log("Navbar is opening")
-        this.isCollapsing = true;
       }
     })
   },
   methods: {
     collapseNavbar() {
-      const navbarCollapse = document.getElementById('navbarNav');
-      console.log("Navbar state before collapsing:", navbarCollapse.classList.contains('show'));
-      if (navbarCollapse.classList.contains('show')) {
-        console.log("Collapsing navbar");
-        this.isCollapsing = true;
+      if (this.collapseInstance._element.classList.contains('show')) {
         this.collapseInstance.hide();
-      } else {
-        console.log("Navbar is already collapsed")
       }
-      console.log("Navbar state after collapsing:", navbarCollapse.classList.contains('show'));
     }
   }
 }
