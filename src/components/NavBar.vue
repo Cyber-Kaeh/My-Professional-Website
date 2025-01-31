@@ -17,8 +17,8 @@
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
         aria-controls="navbarNav"
-        aria-expanded="false"
         aria-label="Toggle navigation"
+        aria-expanded="false"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -91,14 +91,28 @@
 import { Collapse } from 'bootstrap';
 
 export default {
+  data() {
+    return {
+      collapseInstance: null
+    };
+  },
+  mounted() {
+    const navbarCollapse = document.getElementById('navbarNav');
+
+    this.collapseInstance = new Collapse(navbarCollapse, {
+      toggle: false
+    });
+    
+    navbarCollapse.addEventListener('show.bs.collapse', (event) => {
+      if (this.collapseInstance._isTransitioning) {
+        event.preventDefault();
+      }
+    })
+  },
   methods: {
     collapseNavbar() {
-      const navbarCollapse = document.getElementById('navbarNav');
-      if (navbarCollapse.classList.contains('show')) {
-        const bsCollapse = new Collapse(navbarCollapse, {
-          toggle: false
-        });
-        bsCollapse.hide();
+      if (this.collapseInstance._element.classList.contains('show')) {
+        this.collapseInstance.hide();
       }
     }
   }

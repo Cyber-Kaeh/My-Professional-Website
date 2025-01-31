@@ -25,6 +25,7 @@
     align-items: center;
     height: 100vh;
     background-color: #1a1a1a;
+    margin-top: 40px;
   }
 
   .nav-list {

@@ -35,8 +35,9 @@
         <div class="col-md-6">
           <h2>About Me</h2>
           <p>
-            Hello! I'm Anthony Allen, a passionate developer learning full-stack
-            web development. I love creating efficient and secure systems.
+            Hello! I'm Anthony Allen, a passionate developer aspiring to be a 
+            software engineer. I love creating new projects, tinkering in my
+            homelab, and supporting Free Open Source Software (FOSS)!
           </p>
         </div>
       </div>
@@ -79,7 +80,7 @@
     background: url("../assets/hero-image4.jpg") center/cover no-repeat;
     color: white;
     position: relative;
-    padding-bottom: 60px;
+    /* padding-bottom: 60px; */
   }
   .hero h1 {
     font-size: 3.5rem;
@@ -93,7 +94,7 @@
     -webkit-text-stroke: 1px rgb(153, 158, 163);
   }
   #contact {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
   }
   .welcome-text .learn-more-btn {
     color: rgb(255, 255, 255);
