@@ -17,9 +17,8 @@
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
         aria-controls="navbarNav"
-        aria-expanded="false"
         aria-label="Toggle navigation"
-        @click="collapseNavbar"
+        aria-expanded="false"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -94,19 +93,41 @@ import { Collapse } from 'bootstrap';
 export default {
   data() {
     return {
-      collapseInstance: null
+      collapseInstance: null,
+      isCollapsing: false
     };
   },
   mounted() {
     this.collapseInstance = new Collapse(document.getElementById('navbarNav'), {
       toggle: false
     });
+    const navbarCollapse = document.getElementById('navbarNav')
+    navbarCollapse.addEventListener('hidden.bs.collapse', () => {
+      console.log("navbar has been collapsed")
+      this.isCollapsing = false;
+    });
+    navbarCollapse.addEventListener('show.bs.collapse', (event) => {
+      if (this.isCollapsing) {
+        console.log("Preventing navbar from reopening")
+        event.preventDefault();
+      } else {
+        console.log("Navbar is opening")
+        this.isCollapsing = true;
+      }
+    })
   },
   methods: {
     collapseNavbar() {
-      if (this.collapseInstance) {
+      const navbarCollapse = document.getElementById('navbarNav');
+      console.log("Navbar state before collapsing:", navbarCollapse.classList.contains('show'));
+      if (navbarCollapse.classList.contains('show')) {
+        console.log("Collapsing navbar");
+        this.isCollapsing = true;
         this.collapseInstance.hide();
+      } else {
+        console.log("Navbar is already collapsed")
       }
+      console.log("Navbar state after collapsing:", navbarCollapse.classList.contains('show'));
     }
   }
 }
