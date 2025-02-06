@@ -2,7 +2,7 @@
   <div class="container text-centered">
     <h2>My Resume</h2>
     <hr>
-    <p><a href="#">Download pdf</a> | <a href="#">Open new tab</a></p>
+    <p><a href="#">Download pdf</a> | <a :href="pdfUrl" target="_blank">Open in new tab</a></p>
   </div>
   <div class="resume-container">
     <iframe :src="resumeUrl" frameborder="0" class="responsive-iframe"></iframe>
@@ -14,7 +14,8 @@ export default {
   name: 'ResumeView',
   data() {
     return {
-      resumeUrl: '/allen-resume-2024-software.html'
+      resumeUrl: '/resume1.html',
+      pdfUrl: '/resume1.pdf'
     };
   }
 };
