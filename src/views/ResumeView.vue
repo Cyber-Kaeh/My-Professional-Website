@@ -3,7 +3,7 @@
     <h2>My Resume</h2>
     <hr />
     <p>
-      <a href="#">Download pdf</a> |
+      <a :href="pdfUrl" download>Download pdf</a> |
       <a :href="pdfUrl" target="_blank">Open in new tab</a>
     </p>
     <div class="iframe-container">
@@ -17,8 +17,8 @@
     name: "ResumeView",
     data() {
       return {
-        resumeUrl: "/allen-resume-2024-software.html",
-        pdfUrl: "/resume1.pdf",
+        resumeUrl: "/web_resume.html",
+        pdfUrl: "/web_resume_software_2025.pdf",
       }
     },
   }
@@ -32,7 +32,7 @@
   .iframe-container {
   position: relative;
   width: 100%;
-  padding-bottom: 75%; /* Aspect ratio */
+  padding-bottom: 75%;
   height: 0;
   overflow: hidden;
   max-width: 100%;
@@ -53,13 +53,13 @@
 
 @media (max-width: 768px) {
   .iframe-container {
-    padding-bottom: 100%; /* Adjust aspect ratio for smaller screens */
+    padding-bottom: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .iframe-container {
-    padding-bottom: 150%; /* Further adjust aspect ratio for very small screens */
+    padding-bottom: 150%;
   }
 }
 </style>
