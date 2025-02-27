@@ -39,6 +39,7 @@
   import chuckAppDesc from "../assets/descriptions/chuckjokes.md"
   import websiteDesc from "../assets/descriptions/website.md"
   import nextcloudDesc from "../assets/descriptions/nextcloud.md"
+  import homelabDesc from "../assets/descriptions/homelab.md"
 
   export default {
     components: {
@@ -72,6 +73,14 @@
               "A simple web app that displays endless Chuck Norris jokes!",
             description: marked(chuckAppDesc, { renderer }),
             image: require("../assets/chuckapp_screenshot.png"),
+          },
+          {
+            id: 4,
+            title: "Home Lab",
+            shortDescription:
+              "A brief overview of my home lab!",
+            description: marked(homelabDesc, { renderer }),
+            image: require("../assets/hero-image1.jpg"),
           },
           // Add more projects as needed
         ],
