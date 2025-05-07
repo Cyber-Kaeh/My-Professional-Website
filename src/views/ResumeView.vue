@@ -43,7 +43,7 @@
         data-bs-spy="scroll"
         data-bs-target="#list-example"
         data-bs-smooth-scroll="true"
-        data-bs-offset="80"
+        data-bs-offset="20"
         tabindex="0"
       >
         <section id="list-item-1" class="mb-4">
@@ -301,8 +301,30 @@
 </template>
 
 <script>
+import { ScrollSpy } from "bootstrap";
+
 export default {
   name: "ResumeView",
+  mounted() {
+    // Initialize Bootstrap ScrollSpy
+    const scrollSpy = new ScrollSpy(document.getElementById("resume-content"), {
+      target: "#list-example",
+      offset: 20,
+    });
+
+    // Optional: Add smooth scrolling behavior
+    const links = document.querySelectorAll("#list-example a");
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+  },
 };
 </script>
 
@@ -324,11 +346,14 @@ export default {
 
 #resume-content {
   height: 100%;
+  overflow-y: auto;
+  padding-top: 1rem;
   margin-bottom: 70px;
 }
 
 section {
-  scroll-margin-bottom: 72px;
+  scroll-margin-top: 10px;
+  margin-top: 0;
 }
 
 .two-column {
