@@ -131,6 +131,42 @@
               in a small window of time.
             </li>
           </ul>
+          <h5>IT TECHNICAL SUPPORT</h5>
+          <p>
+            Linortek Inc., Winston-Salem, NC
+            <br />
+            May 2025 - June 2025
+            <br />
+          </p>
+          <ul>
+            <li>
+              Took initiative in mastering the installation, configuration, and
+              operation of proprietary IoT hardware and server software without
+              formal training, demonstrating a strong capacity for self-directed
+              learning and technical troubleshooting.
+            </li>
+            <li>
+              Diagnose and resolve a wide range of customer issues through phone
+              and email, providing clear, step-by-step guidance to ensure
+              successful outcomes for both hardware and software challenges.
+            </li>
+            <li>
+              Reverse-engineer device behavior and firmware logic to identify
+              root causes and propose solutions, often under tight time
+              constraints and with minimal documentation.
+            </li>
+            <li>
+              Collaborate closely with the support manager to address complex
+              customer needs, contributing to internal knowledge sharing and
+              process improvements.
+            </li>
+            <li>
+              Maintain professionalism and patience while delivering technical
+              support to a diverse user base, ensuring a positive customer
+              experience.
+            </li>
+          </ul>
+          <!--end new -->
           <h5>RETAIL SUPERVISOR</h5>
           <p>
             Gabe's, Lexington, NC
