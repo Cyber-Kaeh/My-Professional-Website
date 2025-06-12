@@ -4,11 +4,11 @@ A homelab virtualization server built using Proxmox VE 8.4, hosted on repurposed
 
 ### Features
 
-- Hosted multiple virtual machines and LXC containers for isolated development and testing environments
-- Deployed web applications including a capstone website using Nginx and Gunicorn
-- Configured reverse proxy, firewall rules, and basic TLS with Let's Encrypt
-- Created custom secure remote desktop environments using Kasm Workspaces
-- Automated container provisioning using Ansible playbooks
+- Host multiple virtual machines and LXC containers for isolated development and testing environments
+- Deploy web applications including my capstone project website using Nginx and Gunicorn
+- Configur reverse proxy, firewall rules, and basic TLS with Let's Encrypt
+- Creat custom secure remote desktop environments using Kasm Workspaces
+- Automat container provisioning using Ansible playbooks
 
 ### Skills & Concepts
 

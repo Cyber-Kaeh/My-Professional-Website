@@ -40,6 +40,7 @@ import chuckAppDesc from "../assets/descriptions/chuckjokes.md";
 import websiteDesc from "../assets/descriptions/website.md";
 import nextcloudDesc from "../assets/descriptions/nextcloud.md";
 import proxmoxDesc from "../assets/descriptions/proxmox.md";
+import kasmDesc from "../assets/descriptions/kasm.md";
 
 export default {
   components: {
@@ -82,6 +83,14 @@ export default {
           description: marked(proxmoxDesc, { renderer }),
           image: require("../assets/proxmox.png"),
         },
+        {
+          id: 5,
+          title: "Kasm Workspaces",
+          shortDescription:
+            "Self-hosted ephemeral desktops and remote connection.",
+          description: marked(kasmDesc, { renderer }),
+          image: require("../assets/kasm.png"),
+        },
         // Add more projects as needed
       ],
     };
@@ -107,5 +116,9 @@ export default {
 .modal {
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
+}
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
 }
 </style>
