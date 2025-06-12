@@ -33,70 +33,79 @@
 </template>
 
 <script>
-  import ProjectModal from "@/components/ProjectModal.vue"
-  import { marked } from "marked"
-  import renderer from "@/utils/customRenderer"
-  import chuckAppDesc from "../assets/descriptions/chuckjokes.md"
-  import websiteDesc from "../assets/descriptions/website.md"
-  import nextcloudDesc from "../assets/descriptions/nextcloud.md"
+import ProjectModal from "@/components/ProjectModal.vue";
+import { marked } from "marked";
+import renderer from "@/utils/customRenderer";
+import chuckAppDesc from "../assets/descriptions/chuckjokes.md";
+import websiteDesc from "../assets/descriptions/website.md";
+import nextcloudDesc from "../assets/descriptions/nextcloud.md";
+import proxmoxDesc from "../assets/descriptions/proxmox.md";
 
-  export default {
-    components: {
-      Modal: ProjectModal,
+export default {
+  components: {
+    Modal: ProjectModal,
+  },
+  data() {
+    return {
+      showModal: false,
+      selectedProject: null,
+      projects: [
+        {
+          id: 1,
+          title: "This website!",
+          shortDescription:
+            "My professional portfolio website I built with Vue.js and Bootstrap 5.",
+          description: marked(websiteDesc, { renderer }),
+          image: require("../assets/home_screenshot.png"),
+        },
+        {
+          id: 2,
+          title: "Nextcloud",
+          shortDescription:
+            "My own personal cloud storage server, hosted on local hardware.",
+          description: marked(nextcloudDesc, { renderer }),
+          image: require("../assets/nextcloud-screenshot.png"),
+        },
+        {
+          id: 3,
+          title: "Chuck Jokes",
+          shortDescription:
+            "A simple web app that displays endless Chuck Norris jokes!",
+          description: marked(chuckAppDesc, { renderer }),
+          image: require("../assets/chuckapp_screenshot.png"),
+        },
+        {
+          id: 4,
+          title: "Proxmox VE",
+          shortDescription:
+            "An old desktop PC repurposed to be a virtualization server!",
+          description: marked(proxmoxDesc, { renderer }),
+          image: require("../assets/proxmox.png"),
+        },
+        // Add more projects as needed
+      ],
+    };
+  },
+  methods: {
+    openModal(project) {
+      this.selectedProject = project;
+      this.showModal = true;
     },
-    data() {
-      return {
-        showModal: false,
-        selectedProject: null,
-        projects: [
-          {
-            id: 1,
-            title: "This website!",
-            shortDescription:
-              "My professional portfolio website I built with Vue.js and Bootstrap 5.",
-            description: marked(websiteDesc, { renderer }),
-            image: require("../assets/home_screenshot.png"),
-          },
-          {
-            id: 2,
-            title: "Nextcloud",
-            shortDescription:
-              "My own personal cloud storage server, hosted on local hardware.",
-            description: marked(nextcloudDesc, { renderer }),
-            image: require("../assets/nextcloud-screenshot.png"),
-          },
-          {
-            id: 3,
-            title: "Chuck Jokes",
-            shortDescription:
-              "A simple web app that displays endless Chuck Norris jokes!",
-            description: marked(chuckAppDesc, { renderer }),
-            image: require("../assets/chuckapp_screenshot.png"),
-          },
-          // Add more projects as needed
-        ],
-      }
+    closeModal() {
+      this.selectedProject = null;
+      this.showModal = false;
     },
-    methods: {
-      openModal(project) {
-        this.selectedProject = project
-        this.showModal = true
-      },
-      closeModal() {
-        this.selectedProject = null
-        this.showModal = false
-      },
-    },
-  }
+  },
+};
 </script>
 
 <style scoped>
-  .projects-container {
-    padding: 20px;
-    margin-bottom: 60px;
-  }
-  .modal {
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-  }
+.projects-container {
+  padding: 20px;
+  margin-bottom: 60px;
+}
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
 </style>
