@@ -31,6 +31,9 @@
           >Volunteer</a
         >
       </nav>
+      <a href="/Anthony_IT_Resume.pdf" download class="btn mt-3" target="_blank"
+        >Download Resume</a
+      >
     </div>
 
     <!-- Main Content -->
@@ -166,7 +169,6 @@
               experience.
             </li>
           </ul>
-          <!--end new -->
           <h5>RETAIL SUPERVISOR</h5>
           <p>
             Gabe's, Lexington, NC
@@ -378,6 +380,10 @@ export default {
   background-color: #f8f9fa;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  background-color: #17a2b8;
 }
 
 #resume-content {

@@ -20,7 +20,10 @@
   </div>
   <div class="container my-5" data-aos="fade-up">
     <h2>Anthony Allen</h2>
-    <p>I am a student of computer science, learning, and life in general.</p>
+    <p>
+      I'm a curious builder, lifelong learner, and aspiring software engineer
+      with a passion for tech.
+    </p>
   </div>
   <section id="about" class="py-5 bg-light">
     <div class="container">
@@ -35,9 +38,10 @@
         <div class="col-md-6">
           <h2>About Me</h2>
           <p>
-            Hello! I'm Anthony Allen, a passionate developer aspiring to be a 
-            software engineer. I love creating new projects, tinkering in my
-            homelab, and supporting Free Open Source Software (FOSS)!
+            Hi, I'm Anthony Allen — a developer with a growing passion for
+            DevOps, automation, and open source. Whether I'm coding,
+            experimenting in my homelab, or diving into a new stack, I'm always
+            building and learning.
           </p>
         </div>
       </div>
@@ -71,33 +75,37 @@
 </template>
 
 <script>
-  export default {}
+export default {};
 </script>
 
 <style scoped>
-  .hero {
-    height: 100vh;
-    background: url("../assets/hero-image4.jpg") center/cover no-repeat;
-    color: white;
-    position: relative;
-    /* padding-bottom: 60px; */
-  }
-  .hero h1 {
-    font-size: 3.5rem;
-  }
-  .welcome-text {
-    font-family: "Space Mono", "Courier New", Courier, monospace;
-    text-align: left;
-    /* color: rgb(4, 159, 190); */
-    color: rgb(37, 39, 39);
-    text-shadow: 4px 4px 6px rgba(43, 44, 44, 0.751);
-    -webkit-text-stroke: 1px rgb(153, 158, 163);
-  }
-  #contact {
-    margin-bottom: 20px;
-  }
-  .welcome-text .learn-more-btn {
-    color: rgb(255, 255, 255);
-    -webkit-text-stroke: 0.6px rgba(227, 235, 235, 0.751);
-  }
+.hero {
+  height: 100vh;
+  background: url("../assets/hero-image4.jpg") center/cover no-repeat;
+  color: white;
+  position: relative;
+  /* padding-bottom: 60px; */
+}
+.hero h1 {
+  font-size: 3.5rem;
+}
+.welcome-text {
+  /* font-family: "Space Mono", "Courier New", Courier, monospace; */
+  font-family: "Tinos", serif;
+  text-align: left;
+  /* color: rgb(4, 159, 190); */
+  color: rgb(37, 39, 39);
+  text-shadow: 4px 4px 6px rgba(43, 44, 44, 0.751);
+  -webkit-text-stroke: 1px rgb(153, 158, 163);
+}
+#contact {
+  margin-bottom: 20px;
+}
+.welcome-text .learn-more-btn {
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke: 0.6px rgba(227, 235, 235, 0.751);
+}
+h2 p {
+  font-family: "Tinos", serif;
+}
 </style>
