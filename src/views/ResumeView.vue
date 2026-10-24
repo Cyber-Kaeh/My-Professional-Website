@@ -40,15 +40,14 @@
     <div
       class="col-8 flex-fill overflow-auto p-4 mb-5 text-start"
       id="resume-content"
+      ref="scrollContainer"
     >
-      <div
-        class="scrollspy-example"
-        data-bs-spy="scroll"
-        data-bs-target="#list-example"
-        data-bs-smooth-scroll="true"
-        data-bs-offset="20"
-        tabindex="0"
-      >
+      <!-- ScrollSpy is attached to #resume-content (the element that actually
+           scrolls) from this component's mounted hook. The data-bs-spy
+           attributes that used to sit on this inner div made Bootstrap's
+           data-API spin up a second instance rooted on a non-scrolling
+           element, which fought the real one over the .active class. -->
+      <div class="scrollspy-example" tabindex="0">
         <section id="list-item-1" class="mb-4">
           <h3>SUMMARY</h3>
           <p>
@@ -343,25 +342,27 @@ import { ScrollSpy } from "bootstrap";
 
 export default {
   name: "ResumeView",
+  data() {
+    return {
+      scrollSpy: null,
+    };
+  },
   mounted() {
-    // Initialize Bootstrap ScrollSpy
-    const scrollSpy = new ScrollSpy(document.getElementById("resume-content"), {
+    // Root must be the scrolling element, since ScrollSpy uses it as the
+    // IntersectionObserver root. smoothScroll replaces the hand-rolled click
+    // handlers this used to carry -- those were never removed on unmount and
+    // stacked up another set every time you navigated back to /resume.
+    this.scrollSpy = new ScrollSpy(this.$refs.scrollContainer, {
       target: "#list-example",
-      offset: 20,
+      rootMargin: "20px 0px -30%",
+      smoothScroll: true,
     });
-
-    // Optional: Add smooth scrolling behavior
-    const links = document.querySelectorAll("#list-example a");
-    links.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute("href").substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: "smooth" });
-        }
-      });
-    });
+  },
+  beforeUnmount() {
+    // Without this, the instance keeps observing a detached element and a
+    // fresh one is created alongside it on the next visit.
+    this.scrollSpy?.dispose();
+    this.scrollSpy = null;
   },
 };
 </script>

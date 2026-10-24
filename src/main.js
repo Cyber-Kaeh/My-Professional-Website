@@ -1,9 +1,10 @@
 import { createApp } from "vue";
-import { ScrollSpy } from "bootstrap";
 import App from "./App.vue";
 import router from "./router";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+// ESM build only. Importing bootstrap.bundle.min.js as well loaded a second
+// copy of Bootstrap and registered its data-API twice, so every data-bs-*
+// element got two competing instances.
 import "bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "mdb-vue-ui-kit/css/mdb.min.css";
@@ -14,10 +15,6 @@ AOS.init();
 
 createApp(App).use(router).mount("#app");
 
-document.addEventListener("DOMContentLoaded", () => {
-  const scrollSpyElement = document.querySelector(".scrollspy-example");
-  new ScrollSpy(scrollSpyElement, {
-    target: "#list-example",
-    offset: 20, // Match this value to `data-bs-offset`
-  });
-});
+// ScrollSpy is initialized by ResumeView itself, in its mounted hook. Doing it
+// here on DOMContentLoaded ran before the router had mounted any view, so the
+// element did not exist yet on any route other than a hard load of /resume.
