@@ -22,7 +22,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarNav" ref="navbarCollapse">
         <ul class="navbar-nav">
           <li class="nav-item" @click="collapseNavbar">
             <router-link
@@ -88,32 +88,47 @@
 </template>
 
 <script>
-import { Collapse } from 'bootstrap';
+import { Collapse, Tooltip } from 'bootstrap';
 
 export default {
   data() {
     return {
-      collapseInstance: null
+      collapseInstance: null,
+      tooltips: []
     };
   },
   mounted() {
-    const navbarCollapse = document.getElementById('navbarNav');
-
-    this.collapseInstance = new Collapse(navbarCollapse, {
+    // The toggler button carries data-bs-toggle="collapse", so Bootstrap's
+    // data-API also acts on this element -- but it uses getOrCreateInstance,
+    // so it reuses the instance created here rather than making a second one.
+    this.collapseInstance = new Collapse(this.$refs.navbarCollapse, {
       toggle: false
     });
-    
-    navbarCollapse.addEventListener('show.bs.collapse', (event) => {
-      if (this.collapseInstance._isTransitioning) {
-        event.preventDefault();
-      }
-    })
+
+    // Tooltips are opt-in: Bootstrap never auto-initializes them, so the
+    // data-bs-toggle="tooltip" icons below did nothing until now.
+    this.tooltips = [...this.$el.querySelectorAll('[data-bs-toggle="tooltip"]')]
+      .map((el) => new Tooltip(el));
+  },
+  beforeUnmount() {
+    // Tooltips append their popper markup to the body, which outlives this
+    // component unless each instance is disposed.
+    for (const tooltip of this.tooltips) {
+      tooltip.dispose();
+    }
+    this.tooltips = [];
+
+    this.collapseInstance?.dispose();
+    this.collapseInstance = null;
   },
   methods: {
     collapseNavbar() {
-      if (this.collapseInstance._element.classList.contains('show')) {
-        this.collapseInstance.hide();
-      }
+      // hide() already no-ops when the menu is closed or mid-transition, so
+      // the old classList check and the show.bs.collapse/_isTransitioning
+      // workaround are unnecessary. That workaround existed because two
+      // copies of Bootstrap (the UMD bundle plus the ESM build) each kept
+      // their own instance registry and so animated this element twice.
+      this.collapseInstance?.hide();
     }
   }
 }
