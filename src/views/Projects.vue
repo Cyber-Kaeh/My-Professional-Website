@@ -41,7 +41,6 @@ import websiteDesc from "../assets/descriptions/website.md";
 import nextcloudDesc from "../assets/descriptions/nextcloud.md";
 import proxmoxDesc from "../assets/descriptions/proxmox.md";
 import kasmDesc from "../assets/descriptions/kasm.md";
-import homelabDesc from "../assets/descriptions/homelab.md";
 
 export default {
   components: {
@@ -91,13 +90,6 @@ export default {
             "Self-hosted ephemeral desktops and remote connection.",
           description: marked(kasmDesc, { renderer }),
           image: require("../assets/kasm.png"),
-        },
-        {
-          id: 6,
-          title: "Home Lab",
-          shortDescription: "A brief overview of my home lab!",
-          description: marked(homelabDesc, { renderer }),
-          image: require("../assets/hero-image1.jpg"),
         },
         // Add more projects as needed
       ],
