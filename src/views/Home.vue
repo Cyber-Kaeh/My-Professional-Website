@@ -135,7 +135,9 @@ export default {};
 .welcome-text .learn-more-btn {
   background-color: #ffffff;
   border-color: #ffffff;
-  color: #093d00;
+  color: #0b3954;
+  /* Sans for the small uppercase label, matching the nav chrome. */
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -144,6 +146,6 @@ export default {};
 .welcome-text .learn-more-btn:hover {
   background-color: #e3f2fd;
   border-color: #e3f2fd;
-  color: #093d00;
+  color: #0b3954;
 }
 </style>

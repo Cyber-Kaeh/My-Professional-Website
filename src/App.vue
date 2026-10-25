@@ -22,11 +22,11 @@
     margin: 0;
   }
   #app {
-    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #093d00;
+    color: #0b3954;
     background-color: rgb(244, 253, 255);
     /* background-color: rgb(0, 117, 143); */
     min-height: 100%;

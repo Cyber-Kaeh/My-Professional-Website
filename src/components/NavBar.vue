@@ -8,7 +8,7 @@
       <router-link
         class="navbar-brand"
         to="/navView"
-        style="color: rgb(23, 74, 23)"
+        style="color: #0b3954"
         >Navigation</router-link
       >
       <button
@@ -137,6 +137,9 @@ export default {
 <style scoped>
   .navbar {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* The site body is Source Serif 4; nav chrome stays sans so the small
+       links read as UI rather than as prose. */
+    font-family: Roboto, Helvetica, Arial, sans-serif;
   }
   .nav-link {
     color: rgb(0, 117, 143);
@@ -148,7 +151,7 @@ export default {
     border-radius: 0.25rem;
   }
   .active-link {
-    color: rgb(25, 96, 25);
+    color: #0b3954;
     border-radius: 0.25rem;
     background-color: #e3f2fd;
     padding: 5px 10px;
