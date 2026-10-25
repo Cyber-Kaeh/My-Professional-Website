@@ -8,7 +8,7 @@
         <img
           src="@/assets/headshot2.jpg"
           class="img-fluid rounded-circle mb-4"
-          alt="Your Photo"
+          alt="Anthony Allen"
         />
       </div>
       <nav id="list-example" class="list-group w-100">

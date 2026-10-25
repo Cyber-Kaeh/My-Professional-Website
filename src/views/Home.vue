@@ -21,13 +21,6 @@
       </div>
     </section>
   </div>
-  <div class="container my-5" data-aos="fade-up">
-    <h2>Anthony Allen</h2>
-    <p>
-      I'm a curious builder, lifelong learner, and aspiring software engineer
-      with a passion for tech.
-    </p>
-  </div>
   <section id="about" class="py-5 bg-light">
     <div class="container">
       <div class="row align-items-center" data-aos="fade-right">
@@ -35,7 +28,7 @@
           <img
             src="../assets/headshot.jpg"
             class="img-fluid rounded-circle"
-            alt="Profile Picture"
+            alt="Anthony Allen"
           />
         </div>
         <div class="col-md-6">
