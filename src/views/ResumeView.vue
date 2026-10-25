@@ -370,8 +370,11 @@ export default {
 <style scoped>
 /* Scrollspy Active Link Styling */
 .list-group-item.active {
-  background-color: #17a2b8;
-  color: white;
+  /* White on the #17A2B8 accent measured 3.04:1, under the 4.5:1 AA needs
+     for 12.8px bold. The primary teal clears it at 5.33:1. */
+  background-color: #00758f;
+  border-color: #00758f;
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -384,7 +387,20 @@ export default {
 }
 
 .btn {
-  background-color: #17a2b8;
+  /* Only background-color was set here, so the label fell back to Bootstrap's
+     default grey -- #4F4F4F on #17A2B8 is 2.69:1. White on the dark sidebar
+     with the brand blue-teal label clears it at 12.51:1, and matches the
+     hero button. */
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #0b3954;
+  font-weight: 700;
+}
+.btn:hover,
+.btn:focus {
+  background-color: #e3f2fd;
+  border-color: #e3f2fd;
+  color: #0b3954;
 }
 
 #resume-content {
