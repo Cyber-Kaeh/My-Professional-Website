@@ -3,18 +3,21 @@
     <!-- Hero Section -->
     <section class="hero">
       <div
-        class="container welcome-text d-flex flex-column align-items-start justify-content-start"
+        class="container welcome-text d-flex flex-column align-items-start justify-content-center"
       >
-        <h1 class="display-4 fw-bold">
-          Welcome to<br />
-          Anthony's Website
-        </h1>
-        <p class="lead fw-bold text-light">
-          Discover my projects and get in touch
+        <p class="hero-eyebrow">
+          Software Engineer<span class="sep">/</span>DevOps<span class="sep"
+            >/</span
+          >Open Source
         </p>
-        <a href="#about" class="btn learn-more-btn btn-primary mt-3"
-          >Learn More</a
-        >
+        <h1 class="display-4 fw-bold">Anthony Allen</h1>
+        <p class="lead hero-sub">
+          I build and automate things — from web apps to the servers they run
+          on.
+        </p>
+        <router-link to="/projects" class="btn learn-more-btn mt-3">
+          View My Work
+        </router-link>
       </div>
     </section>
   </div>
@@ -81,31 +84,66 @@ export default {};
 <style scoped>
 .hero {
   height: 100vh;
-  background: url("../assets/hero-image4.jpg") center/cover no-repeat;
-  color: white;
+  /* Two layers: the deep-green-to-teal diagonal underneath, and a vertical
+     fade to the page background on top, so the bottom edge dissolves into
+     the rest of the page instead of ending on a hard seam. */
+  background:
+    linear-gradient(180deg, rgba(244, 253, 255, 0) 60%, #f4fdff 100%),
+    linear-gradient(135deg, #093d00 0%, #0b5a4a 52%, #00758f 100%);
+  color: #ffffff;
   position: relative;
-  /* padding-bottom: 60px; */
 }
 .hero h1 {
-  font-size: 3.5rem;
+  /* At a fixed 3.5rem the name was 336px wide inside a 360px container --
+     no overflow, but it would break on a 320px screen. */
+  font-size: clamp(2.5rem, 12vw, 3.5rem);
+  letter-spacing: -0.015em;
+  margin-bottom: 1rem;
 }
 .welcome-text {
-  /* font-family: "Space Mono", "Courier New", Courier, monospace; */
-  font-family: "Tinos", serif;
+  height: 100%;
   text-align: left;
-  /* color: rgb(4, 159, 190); */
-  color: rgb(37, 39, 39);
-  text-shadow: 4px 4px 6px rgba(43, 44, 44, 0.751);
-  -webkit-text-stroke: 1px rgb(153, 158, 163);
+  color: #ffffff;
+}
+/* The developer nod: monospace, small, used once. */
+.hero-eyebrow {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+.hero-eyebrow .sep {
+  opacity: 0.5;
+  padding: 0 0.4rem;
+}
+.hero-sub {
+  max-width: 30em;
+  margin-bottom: 1.75rem;
+  color: rgba(255, 255, 255, 0.92);
 }
 #contact {
   margin-bottom: 20px;
 }
+/* White on the accent cyan only reaches 3.04:1, and 2.51:1 once the fade
+   washes over it -- below the 4.5:1 AA needs for 12px bold text. A white
+   button with the deep brand green clears it at 12.5:1 and reads more
+   strongly against the dark end of the gradient. */
 .welcome-text .learn-more-btn {
-  color: rgb(255, 255, 255);
-  -webkit-text-stroke: 0.6px rgba(227, 235, 235, 0.751);
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #093d00;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.75rem;
 }
-h2 p {
-  font-family: "Tinos", serif;
+.welcome-text .learn-more-btn:hover {
+  background-color: #e3f2fd;
+  border-color: #e3f2fd;
+  color: #093d00;
 }
 </style>
