@@ -61,7 +61,7 @@
           <p>
             Production Setup and QC
             <br />
-            December 2025 &ndash; Present
+            October 2025 &ndash; Present
           </p>
           <ul>
             <li>
