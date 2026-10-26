@@ -50,51 +50,18 @@
             >
           </li>
         </ul>
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <span class="navbar-text powered-by-text"> Powered by: </span>
-            <img
-              src="../assets/vue-logo.png"
-              alt="Vue.js Logo"
-              width="30"
-              height="24"
-              class="d-inline-block align-text-top icons"
-              data-bs-toggle="tooltip"
-              title="Vue 3 v3.2.13"
-            />
-            <img
-              src="../assets/bootstrap-5-logo-icon.webp"
-              alt="Bootstrap 5 Logo"
-              width="30"
-              height="24"
-              class="d-inline-block align-text-top icons"
-              data-bs-toggle="tooltip"
-              title="Bootstrap 5 v5.3.3"
-            />
-            <img
-              src="../assets/github-copilot-icon.png"
-              alt="Github Copilot Logo"
-              width="30"
-              height="24"
-              class="d-inline-block align-text-top icons"
-              data-bs-toggle="tooltip"
-              title="Github Copilot coding assistance"
-            />
-          </li>
-        </ul>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
-import { Collapse, Tooltip } from 'bootstrap';
+import { Collapse } from 'bootstrap';
 
 export default {
   data() {
     return {
-      collapseInstance: null,
-      tooltips: []
+      collapseInstance: null
     };
   },
   mounted() {
@@ -104,20 +71,8 @@ export default {
     this.collapseInstance = new Collapse(this.$refs.navbarCollapse, {
       toggle: false
     });
-
-    // Tooltips are opt-in: Bootstrap never auto-initializes them, so the
-    // data-bs-toggle="tooltip" icons below did nothing until now.
-    this.tooltips = [...this.$el.querySelectorAll('[data-bs-toggle="tooltip"]')]
-      .map((el) => new Tooltip(el));
   },
   beforeUnmount() {
-    // Tooltips append their popper markup to the body, which outlives this
-    // component unless each instance is disposed.
-    for (const tooltip of this.tooltips) {
-      tooltip.dispose();
-    }
-    this.tooltips = [];
-
     this.collapseInstance?.dispose();
     this.collapseInstance = null;
   },
@@ -155,16 +110,5 @@ export default {
     border-radius: 0.25rem;
     background-color: #e3f2fd;
     padding: 5px 10px;
-  }
-  .powered-by-text {
-    margin-right: 20px;
-    font-weight: bold;
-  }
-  .icons {
-    margin-right: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .icons:hover {
-    transform: scale(1.1);
   }
 </style>

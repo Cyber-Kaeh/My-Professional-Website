@@ -68,6 +68,56 @@
       </div>
     </div>
   </section>
+
+  <!-- Built-with strip. Moved off the navbar, where it sat on every page, to
+       the foot of the home page. -->
+  <footer class="built-with text-center">
+    <div class="container">
+      <p class="built-with-label">Built with</p>
+      <ul class="built-with-list">
+        <li>
+          <img
+            src="../assets/vue-logo.png"
+            alt="Vue.js"
+            width="30"
+            height="24"
+            class="icons"
+          />
+          <span>Vue 3</span>
+        </li>
+        <li>
+          <img
+            src="../assets/bootstrap-5-logo-icon.webp"
+            alt="Bootstrap 5"
+            width="30"
+            height="24"
+            class="icons"
+          />
+          <span>Bootstrap 5</span>
+        </li>
+        <li>
+          <img
+            src="../assets/github-copilot-icon.png"
+            alt="GitHub Copilot"
+            width="30"
+            height="24"
+            class="icons"
+          />
+          <span>GitHub Copilot</span>
+        </li>
+        <li>
+          <img
+            src="../assets/claude-icon.svg"
+            alt="Claude"
+            width="30"
+            height="24"
+            class="icons"
+          />
+          <span>Claude Code</span>
+        </li>
+      </ul>
+    </div>
+  </footer>
 </template>
 
 <script>
@@ -120,6 +170,45 @@ export default {};
 }
 #contact {
   margin-bottom: 20px;
+}
+.built-with {
+  /* The navbar is fixed-bottom and overlays the page, so the last element
+     needs clearance for its height (~59px) or it sits behind it. */
+  padding: 1.75rem 0 6rem;
+  border-top: 1px solid rgba(11, 57, 84, 0.12);
+}
+.built-with-label {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 1rem;
+}
+.built-with-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem 2rem;
+}
+.built-with-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+.built-with-list .icons {
+  width: 30px;
+  height: 24px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+.built-with-list li:hover .icons {
+  transform: scale(1.1);
 }
 /* White on the accent cyan only reaches 3.04:1, and 2.51:1 once the fade
    washes over it -- below the 4.5:1 AA needs for 12px bold text. A white
