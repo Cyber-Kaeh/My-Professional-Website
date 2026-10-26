@@ -1,10 +1,13 @@
 <template>
-  <div class="d-flex vh-100 overflow-hidden">
-    <!-- Sidebar -->
+  <div class="d-flex vh-100 overflow-hidden resume-layout">
+    <!-- Sidebar. Under 768px the layout stacks: this becomes a full-width
+         header with the portrait above a horizontally scrolling row of
+         section links, so the resume text gets the full viewport width
+         instead of the 250px that col-8 left it. -->
     <div
-      class="bg-dark text-white col-4 p-3 d-flex flex-column align-items-center"
+      class="bg-dark text-white col-4 p-3 d-flex flex-column align-items-center resume-sidebar"
     >
-      <div class="text-center">
+      <div class="text-center resume-portrait">
         <img
           src="@/assets/headshot2.jpg"
           class="img-fluid rounded-circle mb-4"
@@ -380,8 +383,62 @@ section {
 }
 
 @media (max-width: 768px) {
-  .list-group-item {
-    font-size: 0.8rem;
+  /* Stack instead of a 33/67 split. col-4/col-8 carry no breakpoint, so on a
+     375px phone the text column was 250px wide and wrapped after three or
+     four words. Stacked, it gets the full width. */
+  .resume-layout {
+    flex-direction: column;
+  }
+  .resume-sidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 auto;
+    padding: 0.6rem 0.5rem !important;
+  }
+  /* Portrait stays, just small enough not to cost a third of the screen
+     before any resume text appears. */
+  .resume-portrait img {
+    width: 84px;
+    height: 84px;
+    object-fit: cover;
+    margin-bottom: 0.6rem !important;
+  }
+  /* Section links become a swipeable row of chips. */
+  #list-example {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.4rem;
+    padding-bottom: 0.2rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  #list-example::-webkit-scrollbar {
+    display: none;
+  }
+  #list-example .list-group-item {
+    font-size: 0.78rem;
+    white-space: nowrap;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 0.3rem 0.8rem;
+    width: auto;
+    flex: 0 0 auto;
+  }
+  .resume-sidebar .btn {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.9rem;
+    margin-top: 0.6rem !important;
+  }
+  /* Take the remaining height and keep scrolling inside this element, which
+     is what the section highlighting measures against. */
+  #resume-content {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.75rem !important;
+    margin-bottom: 60px;
   }
   .scrollspy-example {
     padding: 1rem;
@@ -389,14 +446,7 @@ section {
   }
   p,
   li {
-    font-size: 0.8rem;
-  }
-  .col-4,
-  .col-8 {
-    padding: 0.25rem !important;
-  }
-  #resume-content {
-    margin-bottom: 60px;
+    font-size: 0.85rem;
   }
 }
 </style>
