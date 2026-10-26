@@ -19,16 +19,13 @@
           >Experience</a
         >
         <a class="list-group-item list-group-item-action" href="#list-item-3"
-          >Education</a
+          >Home Lab</a
         >
         <a class="list-group-item list-group-item-action" href="#list-item-4"
-          >Projects</a
+          >Education</a
         >
         <a class="list-group-item list-group-item-action" href="#list-item-5"
           >Skills</a
-        >
-        <a class="list-group-item list-group-item-action" href="#list-item-6"
-          >Volunteer</a
         >
       </nav>
       <a href="/Anthony_IT_Resume.pdf" download class="btn mt-3" target="_blank"
@@ -51,286 +48,145 @@
         <section id="list-item-1" class="mb-4">
           <h3>SUMMARY</h3>
           <p>
-            Motivated IT professional with a passion for problem-solving and
-            customer support. Recent graduate of Forsyth Technical Community
-            College with an Associate’s degree in IT - Computer Programming and
-            Software Development, with a strong foundation in troubleshooting,
-            networking, and modern software development practices. Seeking an
-            entry-level role in IT to apply technical skills, support end-users,
-            and troubleshoot issues in a professional setting. Known for
-            excellent communication, drive, attention to detail, and an
-            eagerness to learn.
+            Automation-focused IT professional who builds Ansible, Python, and
+            Bash automation to provision and validate macOS and Ubuntu Server
+            systems for production, and uses agentic AI tools (Claude Code) to
+            ship working software quickly. Pursuing a B.S. in Software
+            Engineering at WGU; seeking a DevOps or Systems Engineer role.
           </p>
         </section>
         <section id="list-item-2" class="mb-4">
           <h3>EXPERIENCE</h3>
-          <h5>CAPSTONE PROJECT</h5>
+          <h5>T1V, Charlotte, NC</h5>
           <p>
-            Forsyth Technical Community College, Winston-Salem, NC
+            Production Setup and QC
             <br />
-            January 2025 - May 2025
-            <br />
-            Working collaboratively with over 50 peers in the graduating IT
-            class to design, develop, and implement a retail website
+            December 2025 &ndash; Present
           </p>
           <ul>
             <li>
-              Analyze system specifications to architect a deliverable product
+              Modernized the Ubuntu Server relay image (22.04 to 24.04, Python 2
+              to Python 3) and expanded the imaging script to handle most
+              configuration itself, retiring 5+ years of technical debt and
+              cutting hands-on imaging time from ~30 to ~5 minutes per device.
             </li>
             <li>
-              Implement development environments using GitHub Codespaces and VS
-              Code – Dev Containers.
+              Built a weekly smoke-test pipeline that rebuilds the relay image
+              in a disposable libvirt/KVM VM and emails results to support;
+              pinned RabbitMQ and Erlang through APT with an offline repository
+              after an upstream update broke production images.
             </li>
             <li>
-              Document build procedures for environments on GitHub (View full
-              codebase:
-              <a
-                href="https://github.com/Cyber-Kaeh/elevate-retail"
-                target="_blank"
-                >https://github.com/Cyber-Kaeh/elevate-retail</a
-              >).
+              Deployed Ansible in Docker-based Execution Environments, triggered
+              by a Flask phone-home service that registers newly imaged devices
+              and runs their playbooks.
             </li>
             <li>
-              Implement a containerized MSSQL instance in Docker for the test
-              database while maintaining parity with the production database.
+              Maintained the macOS imaging script across releases, including
+              macOS 27&rsquo;s relocated TCC database and MAC address
+              restrictions; built a scripted UTM VM workflow for near-instant
+              clean test resets.
             </li>
             <li>
-              Troubleshoot errors or issues related to installation,
-              environments, deployments, dependencies, database connections, or
-              general IT-related problems for all teams.
+              Developed two Python terminal tools: IntegralConfigurator
+              (Textual), which auto-detects HDFury Integral 2 devices over USB
+              serial, and ants-configurator, a PEX-packaged tool for
+              post-imaging Mac setup.
             </li>
             <li>
-              Implement efficient, security-first coding practices using
-              Python’s Flask framework, SQL-Alchemy, Werkzeug, and CSRF
-              protection tokens.
+              Image, stage, and QC 20&ndash;40 devices per month (Mac Minis, Mac
+              Studios, Ubuntu relay NUCs), verifying hardware and software
+              configuration before customer shipment. Coordinate handoffs with
+              assembly and attend operations and project meetings.
             </li>
             <li>
-              Create an intuitive and responsive front-end using Bootstrap 5,
-              Jinja templating, and AJAX methodology.
+              Troubleshoot hardware and software failures on in-house units and
+              field returns, using system logs and disk diagnostics to find root
+              causes; initiate and track RMAs for faulty components.
             </li>
           </ul>
-          <h5>WEB APP DEVELOPER INTERN</h5>
+          <h5>Gabe&rsquo;s, Lexington, NC</h5>
           <p>
-            Forsyth Technical Community College, Winston-Salem, NC
+            Retail Supervisor
             <br />
-            February 2024 - July 2024
-            <br />
-            Working on a small team of student interns under the supervision of
-            a senior software developer to create a statistical calculator for
-            the school's math department.
+            September 2024 &ndash; March 2025
           </p>
           <ul>
             <li>
-              Draw from prior knowledge of basic HTML/CSS to create a visual
-              interface for testing statistical calculations.
+              Led store associates through daily operations, including opening,
+              closing, and cash office duties.
             </li>
             <li>
-              Learn JavaScript to leverage the math.js library, allowing for
-              fast processing of complex mathematical computations.
-            </li>
-            <li>
-              Work independently or with a small team to deliver functional code
-              in a small window of time.
-            </li>
-          </ul>
-          <h5>IT TECHNICAL SUPPORT</h5>
-          <p>
-            Linortek Inc., Winston-Salem, NC
-            <br />
-            May 2025 - June 2025
-            <br />
-          </p>
-          <ul>
-            <li>
-              Took initiative in mastering the installation, configuration, and
-              operation of proprietary IoT hardware and server software without
-              formal training, demonstrating a strong capacity for self-directed
-              learning and technical troubleshooting.
-            </li>
-            <li>
-              Diagnose and resolve a wide range of customer issues through phone
-              and email, providing clear, step-by-step guidance to ensure
-              successful outcomes for both hardware and software challenges.
-            </li>
-            <li>
-              Reverse-engineer device behavior and firmware logic to identify
-              root causes and propose solutions, often under tight time
-              constraints and with minimal documentation.
-            </li>
-            <li>
-              Collaborate closely with the support manager to address complex
-              customer needs, contributing to internal knowledge sharing and
-              process improvements.
-            </li>
-            <li>
-              Maintain professionalism and patience while delivering technical
-              support to a diverse user base, ensuring a positive customer
-              experience.
-            </li>
-          </ul>
-          <h5>RETAIL SUPERVISOR</h5>
-          <p>
-            Gabe's, Lexington, NC
-            <br />
-            September 2024 - March 2025
-            <br />
-            Working in a high-volume retail outlet store to deliver support,
-            value, and assistance to customers as well as team members.
-          </p>
-          <ul>
-            <li>
-              Resolve escalated customer issues and provide equitable solutions.
-            </li>
-            <li>
-              Troubleshoot point of sale systems, hand-held devices, office
-              computers, and printers. Escalating to the company helpdesk
-              ticketing system if necessary.
-            </li>
-            <li>
-              Execute strategic plans to minimize shrinkage and enhance
-              operational efficiency.
-            </li>
-            <li>
-              Successfully perform opening and closing functions, including cash
-              office execution and alarm resolution during and after hours.
+              Resolved escalated customer issues and carried out plans to reduce
+              shrink and improve operational efficiency.
             </li>
           </ul>
         </section>
         <section id="list-item-3" class="mb-4">
-          <h3>EDUCATION</h3>
-          <h5>
-            Associate’s of Applied Science in IT, Computer Programming and
-            Software Development
-          </h5>
+          <h3>HOME LAB</h3>
+          <h5>Self-Hosted Home Lab</h5>
           <p>
-            Forsyth Technical Community College, Winston-Salem, NC
+            Personal environment for learning and experimentation
             <br />
-            Graduated: May 2025
-            <br />
+            Ongoing
           </p>
           <ul>
-            <li>GPA 4.0</li>
-            <li>Distinguished member of the President's List</li>
             <li>
-              Relevant coursework: Python Programming, Networking Foundations,
-              Database Management, Security Concepts, Ethics in High Technology,
-              Systems Design and Analysis
+              Design and maintain a segmented network: OPNsense firewall with
+              VLANs for home, development, and isolated/IoT traffic; Unbound
+              DNS; Omada wireless; and Twingate for remote access without port
+              forwarding.
+            </li>
+            <li>
+              Run Proxmox hosting ~8 VMs and LXC containers, including a Flask
+              app behind Gunicorn and Nginx.
+            </li>
+            <li>
+              Built a local AI stack (Ollama, GPU passthrough to Docker) and n8n
+              workflows that file notes into Obsidian.
             </li>
           </ul>
-          <h5>MICROSOFT CERTIFIED: AZURE DATAFUNDMENTALS (DP-900)</h5>
-          <p>
-            Credential ID: 1D65ED49149EED2F | Certification number:
-            20AECR-FA8560
-            <br />
-            February 2025
-          </p>
         </section>
         <section id="list-item-4" class="mb-4">
-          <h3>PROJECTS</h3>
-          <h5>VIRTUALIZATION SERVER</h5>
+          <h3>EDUCATION &amp; CERTIFICATIONS</h3>
+          <h5>Western Governors University</h5>
           <p>
-            Implementation of Proxmox PVE 8 on a retired enterprise desktop
-            computer. Despite being limited to a 4th-generation i7 processor, it
-            easily hosts a combination of around eight separate virtual machines
-            and LXC containers. Currently managing self-hosted instances such as
-            Nextcloud private cloud, and Kasm Workspaces (ephemeral desktops or
-            appliances based on Docker).
+            B.S. Software Engineering
+            <br />
+            Expected June 2027
           </p>
-          <h5>HOME NETWORK</h5>
+          <h5>Forsyth Technical Community College</h5>
+          <p>
+            A.A.S. Information Technology (High Honors, 4.0 GPA)
+            <br />
+            May 2025
+          </p>
+          <h5>Certifications</h5>
           <ul>
+            <li>CompTIA Project+ &mdash; July 2026</li>
             <li>
-              Router and switch management to provide network segmentation
+              Microsoft Certified: Azure Data Fundamentals (DP-900) &mdash;
+              February 2025
             </li>
-            <li>
-              Self-hosted Twingate connector to provide safe remote connections
-              without port-forwarding
-            </li>
-            <li>DNS Sinkhole provided by self-hosted AdguardHome</li>
-          </ul>
-          <h5>PERSONAL WEBSITE</h5>
-          <p>
-            Design, implement, and deploy a personal website with a clean UI/UX
-            and mobile-first responsiveness. Currently re- designing the
-            back-end with Django to support a blog.
-          </p>
-          <ul class="two-column">
-            <li>Vue3 and Bootstrap 5</li>
-            <li>Hosting provided by Hostinger.com</li>
-            <li>CI/CD with GitHub Actions</li>
-            <li>Version control with Git</li>
           </ul>
         </section>
         <section id="list-item-5" class="mb-4">
-          <h3>SKILLS</h3>
+          <h3>TECHNICAL SKILLS</h3>
+          <h5>Automation &amp; DevOps</h5>
           <p>
-            Foundational knowledge in core computing concepts, networking,
-            virtualization, cloud computing, and cybersecurity.<br />
-            Proven ability in communication, leadership, collaboration,
-            professionalism, and personal development.
+            Ansible, Bash, Python (Flask, Textual), Git, GitHub, GitLab, GitHub
+            Actions
           </p>
-          <ul class="two-column">
-            <li>Windows Home/Pro/Server</li>
-            <li>Microsoft 365</li>
-            <li>Microsoft Teams</li>
-            <li>RDP/VNC Remote connections</li>
-            <li>VS Code</li>
-            <li>SQL</li>
-            <li>SQL Server, SSMS</li>
-            <li>Python</li>
-            <li>IoT</li>
-            <li>Linux (Fedora, Debian)</li>
-            <li>Proxmox PVE</li>
-            <li>Shell Scripting (Bash)</li>
-            <li>VI, VIM, Nano</li>
-            <li>Docker</li>
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>Java</li>
-            <li>JavaScript/HTML/CSS</li>
-          </ul>
-        </section>
-        <section id="list-item-6" class="mb-4">
-          <h3>VOLUNTEER ACTIVITIES</h3>
-          <h5>Skills USA Competition</h5>
+          <h5>Systems &amp; Virtualization</h5>
           <p>
-            Winston-Salem, NC
-            <br />
-            Aprtil 2024
-            <br />
-            Programming and Software Development Competitor
+            Ubuntu Server, macOS, Windows, Docker, libvirt/KVM, Proxmox, LXC,
+            UTM, OPNsense, Nginx
           </p>
-          <ul>
-            <li>
-              Competed in a state-level competition for programming and software
-              development.
-            </li>
-            <li>
-              Demonstrated ability to work in a high pressure environment with
-              little time to complete tasks.
-            </li>
-            <li>
-              Demonstrated problem-solving skills, and technical knowledge
-              through a 50 question quiz.
-            </li>
-          </ul>
-          <h5>ITP (Information Technology Professionals) Club</h5>
+          <h5>AI &amp; Collaboration</h5>
           <p>
-            Winston-Salem, NC
-            <br />
-            August 2023 - Aprtil 2024
-            <br />
-            Club Member
+            Claude Code (agentic workflows, skills), Claude API, Ollama, n8n,
+            Jira, Google Workspace
           </p>
-          <ul>
-            <li>
-              Engage in discussions about IT topics like AI, cybersecurity, and
-              programming during monthly meetings.
-            </li>
-            <li>
-              Participate in cybersecurity challenges and competitions,
-              developing teamwork and problem-solving skills.
-            </li>
-          </ul>
         </section>
       </div>
     </div>
