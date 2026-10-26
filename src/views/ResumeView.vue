@@ -449,4 +449,32 @@ section {
     font-size: 0.85rem;
   }
 }
+
+/* Short viewports, chiefly a phone held in landscape. The stacking rules
+   above key off width, and a landscape phone is ~812px wide, so it gets the
+   side-by-side layout without the height to support it: the sidebar needed
+   461px inside a 375px shell, which clipped the last two nav items and the
+   download button with no way to scroll to them. The wrapper is vh-100 with
+   overflow hidden, so nothing spills into view. Shrink the portrait, tighten
+   the controls, and let the sidebar scroll if it still does not fit. */
+@media (max-height: 520px) {
+  .resume-sidebar {
+    overflow-y: auto;
+  }
+  .resume-portrait img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    margin-bottom: 0.5rem !important;
+  }
+  .resume-sidebar .list-group-item {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+  }
+  .resume-sidebar .btn {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+    margin-top: 0.4rem !important;
+  }
+}
 </style>
