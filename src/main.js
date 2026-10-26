@@ -15,6 +15,7 @@ AOS.init();
 
 createApp(App).use(router).mount("#app");
 
-// ScrollSpy is initialized by ResumeView itself, in its mounted hook. Doing it
-// here on DOMContentLoaded ran before the router had mounted any view, so the
-// element did not exist yet on any route other than a hard load of /resume.
+// Section highlighting on /resume is handled by ResumeView itself. It used to
+// be set up here on DOMContentLoaded, which ran before the router had mounted
+// any view, so the element did not exist yet on any route other than a hard
+// load of /resume.

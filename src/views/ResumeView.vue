@@ -39,11 +39,11 @@
       id="resume-content"
       ref="scrollContainer"
     >
-      <!-- ScrollSpy is attached to #resume-content (the element that actually
-           scrolls) from this component's mounted hook. The data-bs-spy
+      <!-- Section highlighting is driven from #resume-content, the element
+           that actually scrolls; see the script below. The data-bs-spy
            attributes that used to sit on this inner div made Bootstrap's
-           data-API spin up a second instance rooted on a non-scrolling
-           element, which fought the real one over the .active class. -->
+           data-API spin up an instance rooted on a non-scrolling element,
+           which fought the real one over the .active class. -->
       <div class="scrollspy-example" tabindex="0">
         <section id="list-item-1" class="mb-4">
           <h3>SUMMARY</h3>
@@ -213,31 +213,114 @@
 </template>
 
 <script>
-import { ScrollSpy } from "bootstrap";
+// Bootstrap's ScrollSpy is deliberately not used here. It drives the
+// highlight from IntersectionObserver threshold crossings, and it clears the
+// active link whenever any observed section reports isIntersecting: false.
+// A section taller than roughly twice the scroll container can never reach
+// the 0.5 threshold, so once the section above it scrolls out and clears the
+// highlight, nothing re-fires until the next boundary and the nav goes blank
+// mid-section. Experience measures 1562px against a 726px container at
+// narrow widths. Tuning threshold and rootMargin only moved which viewports
+// broke, because the underlying behaviour depends on the order entries
+// arrive in a batch. The scroll position tells us the answer directly, so
+// this computes it instead.
+
+const MARKER_FRACTION = 0.25; // the line, 25% down the container, that decides
 
 export default {
   name: "ResumeView",
   data() {
     return {
-      scrollSpy: null,
+      sections: [],
+      links: new Map(),
+      activeId: null,
+      rafId: null,
     };
   },
   mounted() {
-    // Root must be the scrolling element, since ScrollSpy uses it as the
-    // IntersectionObserver root. smoothScroll replaces the hand-rolled click
-    // handlers this used to carry -- those were never removed on unmount and
-    // stacked up another set every time you navigated back to /resume.
-    this.scrollSpy = new ScrollSpy(this.$refs.scrollContainer, {
-      target: "#list-example",
-      rootMargin: "20px 0px -30%",
-      smoothScroll: true,
-    });
+    const container = this.$refs.scrollContainer;
+    if (!container) return;
+
+    this.sections = Array.from(container.querySelectorAll("section[id]"));
+    for (const a of document.querySelectorAll("#list-example a[href^='#']")) {
+      this.links.set(a.getAttribute("href").slice(1), a);
+      a.addEventListener("click", this.onNavClick);
+    }
+
+    container.addEventListener("scroll", this.onScroll, { passive: true });
+    window.addEventListener("resize", this.onScroll, { passive: true });
+    this.update();
   },
   beforeUnmount() {
-    // Without this, the instance keeps observing a detached element and a
-    // fresh one is created alongside it on the next visit.
-    this.scrollSpy?.dispose();
-    this.scrollSpy = null;
+    const container = this.$refs.scrollContainer;
+    container?.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("resize", this.onScroll);
+    for (const a of this.links.values()) {
+      a.removeEventListener("click", this.onNavClick);
+    }
+    if (this.rafId) cancelAnimationFrame(this.rafId);
+    this.links.clear();
+    this.sections = [];
+  },
+  methods: {
+    // Offset of an element from the top of the scrollable content. Measured
+    // rather than read from offsetTop, which is relative to the nearest
+    // positioned ancestor and not necessarily the scroll container.
+    offsetWithin(el, container) {
+      return (
+        el.getBoundingClientRect().top -
+        container.getBoundingClientRect().top +
+        container.scrollTop
+      );
+    },
+    onScroll() {
+      // Coalesce bursts of scroll events into one measurement per frame.
+      if (this.rafId) return;
+      this.rafId = requestAnimationFrame(() => {
+        this.rafId = null;
+        this.update();
+      });
+    },
+    update() {
+      const container = this.$refs.scrollContainer;
+      if (!container || !this.sections.length) return;
+
+      const atBottom =
+        container.scrollTop + container.clientHeight >=
+        container.scrollHeight - 2;
+
+      let current = this.sections[0];
+      if (atBottom) {
+        // The last section often cannot scroll high enough to cross the
+        // marker, so pin it once the container bottoms out.
+        current = this.sections[this.sections.length - 1];
+      } else {
+        const marker =
+          container.scrollTop + container.clientHeight * MARKER_FRACTION;
+        for (const section of this.sections) {
+          if (this.offsetWithin(section, container) <= marker) {
+            current = section;
+          }
+        }
+      }
+
+      if (current.id === this.activeId) return;
+      this.activeId = current.id;
+      for (const [id, link] of this.links) {
+        link.classList.toggle("active", id === current.id);
+      }
+    },
+    onNavClick(event) {
+      const href = event.currentTarget.getAttribute("href");
+      const target = href && document.getElementById(href.slice(1));
+      const container = this.$refs.scrollContainer;
+      if (!target || !container) return;
+      event.preventDefault();
+      container.scrollTo({
+        top: this.offsetWithin(target, container),
+        behavior: "smooth",
+      });
+    },
   },
 };
 </script>
