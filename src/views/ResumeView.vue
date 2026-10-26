@@ -65,6 +65,25 @@
           </p>
           <ul>
             <li>
+              Built a visual regression testing framework for ThinkHub,
+              T1V&rsquo;s large-format touch collaboration software, whose
+              custom rendering engine is invisible to accessibility-based tools
+              like XCUITest and Appium. The suite replays touch and gesture
+              inputs through Peekaboo, captures screenshots at checkpoints, and
+              scores them against baseline images using structural similarity
+              matching, delivering automated testing that the company had
+              pursued for about 10 years.
+            </li>
+            <li>
+              Scaled the framework to 35 tests and about 400 checkpoints
+              covering embedded browsers, whiteboards, annotation, multitouch,
+              and session save/restore; one orchestrator runs the full suite and
+              publishes a live dashboard, HTML reports with visual diffs, and
+              CI-style exit codes. Designed and built with Claude Code,
+              including custom skills and subagents that encode how to run the
+              suite, triage failures, and write new tests.
+            </li>
+            <li>
               Modernized the Ubuntu Server relay image (22.04 to 24.04, Python 2
               to Python 3) and expanded the imaging script to handle most
               configuration itself, retiring 5+ years of technical debt and
