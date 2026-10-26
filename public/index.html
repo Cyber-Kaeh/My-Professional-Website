@@ -4,9 +4,23 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <!-- favicon.ico carries 16/32/48 so browsers and Windows pick the right
-         size; apple-touch-icon is the 180px home-screen tile on iOS. -->
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico" sizes="any" />
+    <!-- Explicit PNGs first: browsers resolve these more predictably than
+         ICO, and Firefox in particular will otherwise fall back to a
+         generated letter tile. favicon.ico (16/32/48) stays for older
+         browsers and Windows shortcuts; apple-touch-icon is the iOS tile. -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="<%= BASE_URL %>favicon-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="<%= BASE_URL %>favicon-16.png"
+    />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
     <link rel="apple-touch-icon" href="<%= BASE_URL %>apple-touch-icon.png" />
     <title>Anthony Allen — Software Engineer</title>
     <meta
